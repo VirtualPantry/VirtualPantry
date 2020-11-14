@@ -117,7 +117,7 @@ The following iOS application called Virtual Pantry will automate an shopping li
    * Grocery Screen 
 
 ## Wireframes
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="IMG_1228.JPG" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
