@@ -1,26 +1,25 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  VirtualPantry
 //
-//  Created by Mathew Chanda on 11/8/20.
+//  Created by Shreyas Pant on 11/14/20.
 //
 
 import UIKit
-import Firebase
-import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
+    
     /*
     // MARK: - Navigation
 
@@ -30,10 +29,7 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func loginButton(_ sender: Any) {
-    }
-    
-    @IBAction func want2SignUp(_ sender: Any) {
-        
+
+    @IBAction func signUpButton(_ sender: Any) {
     }
 }

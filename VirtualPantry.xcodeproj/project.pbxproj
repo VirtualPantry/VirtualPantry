@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
 		57397BAD383EA3BE05B19FA9 /* Pods_VirtualPantry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */; };
 		AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A17992557D94D00854288 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
+		18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47F7FC34A7B3A7B2A8209E18 /* Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				AF6A17D22557DAE100854288 /* LoginViewController.swift */,
+				18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
 				AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
+				18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
