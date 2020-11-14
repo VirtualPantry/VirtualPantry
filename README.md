@@ -1,6 +1,3 @@
-Original App Design Project - README Template
-===
-
 # Virtual Pantry 
 
 ## Table of Contents
@@ -14,7 +11,6 @@ Original App Design Project - README Template
 The following iOS application called Virtual Pantry will automate an shopping list to the user based on the user's current inventory at the home. The application will keep track of items that are low in quantity and automatically send the item to the shopping list.
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Productivity 
 - **Mobile:** IOS application 
 - **Story:** Often, many people including myself will underestimate the quanitity of their inventory when deciding to buy an food item. By having surplus of a particular item, the item will soon become expired leading to losing money and wasting food. 
@@ -121,7 +117,6 @@ The following iOS application called Virtual Pantry will automate an shopping li
    * Grocery Screen 
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
 <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
