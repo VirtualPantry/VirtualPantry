@@ -121,7 +121,7 @@ The following iOS application called Virtual Pantry will automate an shopping li
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1229.JPG" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
-
+Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pantry-Mocks-Design?node-id=0%3A1
 ### [BONUS] Interactive Prototype
 
 ## Schema 
