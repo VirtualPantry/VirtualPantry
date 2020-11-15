@@ -127,7 +127,7 @@
                         <outlet property="emailField" destination="vvB-gF-F22" id="GdX-5h-phb"/>
                         <outlet property="errorLabel" destination="Oaj-ZW-5Qi" id="t7M-LF-Frr"/>
                         <outlet property="passwordField" destination="bEU-bP-9NN" id="WDw-CS-OuP"/>
-                        <segue destination="Vfe-bi-I5K" kind="show" id="dDf-lw-gP5"/>
+                        <segue destination="Vfe-bi-I5K" kind="show" identifier="signInSuccessFul" id="dDf-lw-gP5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

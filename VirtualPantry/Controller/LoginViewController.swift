@@ -78,7 +78,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             if error != nil {
                 print("\(error)")
             } else {
-                self.view.window?.rootViewController?.performSegue(withIdentifier: "ShoppingCart", sender: self)
+                self.performSegue(withIdentifier: "signInSuccessFul", sender: nil)
             }
         }
     }
