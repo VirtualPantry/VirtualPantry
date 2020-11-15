@@ -8,6 +8,9 @@ target 'VirtualPantry' do
   # Pods for VirtualPantry
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Analytics'
 
   target 'VirtualPantryTests' do
     inherit! :search_paths
