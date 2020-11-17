@@ -10,7 +10,7 @@ import Firebase
 import GoogleSignIn
 import FirebaseAuth
 
-class LoginViewController: UIViewController, GIDSignInDelegate {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -21,12 +21,14 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         errorLabel.alpha = 0
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()!.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
 
         // Do any additional setup after loading the view.
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
         }
+        
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(signedIn), name: Notification.Name("UserLoggedIn"), object: nil)
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -54,6 +56,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         }
         
     }
+    
     func validateFields() -> String? {
         // is everything filled in?
         if emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -63,32 +66,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         
         // nil means everything is fine
         return nil
-    } 
-    @IBAction func googleSignIn(_ sender: Any) {
-        GIDSignIn.sharedInstance()?.delegate = self
-        GIDSignIn.sharedInstance()?.signIn()
-        
     }
     
     
-    // self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let error = error {
-            print(error)
-            return
-          }
-          guard let authentication = user.authentication else { return }
-          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-            Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
-            if error != nil {
-                print("\(String(describing: error))")
-            } else {
-                print("Successful")
-                let nc = NotificationCenter.default
-                nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
-                
-            }
-        }
+    @objc func signedIn(note : Notification){
+        self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
     }
 }
