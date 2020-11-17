@@ -74,7 +74,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
           }
           guard let authentication = user.authentication else { return }
           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
+            Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
             if error != nil {
                 print("\(error)")
             } else {

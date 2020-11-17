@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */; };
 		18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */; };
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
 		18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
+		185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				AF6A17D22557DAE100854288 /* LoginViewController.swift */,
 				18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */,
 				18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */,
+				185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */,
 				AF6A17D32557DAE100854288 /* LoginViewController.swift in Sources */,
 				18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */,
 				18D9E9542560913D00D656B2 /* constant.swift in Sources */,
