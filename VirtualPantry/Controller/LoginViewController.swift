@@ -24,9 +24,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
 
         // Do any additional setup after loading the view.
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
+        }
     }
     
-
     @IBAction func loginButton(_ sender: Any) {
         // validate email and pass
         let error = validateFields()
@@ -65,7 +67,11 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     @IBAction func googleSignIn(_ sender: Any) {
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.signIn()
+        
     }
+    
+    
+    // self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
@@ -76,9 +82,12 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
             Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
             if error != nil {
-                print("\(error)")
+                print("\(String(describing: error))")
             } else {
-                self.performSegue(withIdentifier: "signInSuccessFul", sender: nil)
+                print("Successful")
+                let nc = NotificationCenter.default
+                nc.post(name: Notification.Name("UserLoggedIn"), object: nil)
+                
             }
         }
     }
