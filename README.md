@@ -174,5 +174,27 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 
 
 ### Networking
-<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/setDataEndpoint.PNG" width=600>
-<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/getDataEndpoint.PNG" width=600>
+  - Sign up screen
+      - (Create/POST) Create a new user object 
+  - Sign in screen
+      - (Read/GET) Read a new user object
+  - Shopping List
+      - (Read/GET) Read all shopping items for a user object
+      - (Update/PUT) Update selected or all shopping items and add to pantry list 
+  - Pantry List
+      - (Read/GET) Read all pantry items for a user object
+      - (Update/PUT) Update selected or all pantry items and add to shopping list 
+  - Item Information screen
+      - (Update/PUT) Update viewed item 
+  - History screen
+     - (Read/GET) Read in the history of all items added by user 
+  - Report Bug 
+     - (Create/POST) Sends email about a bug to our email account 
+  - Change password screen
+     - (Update/PUT) Update password for the user
+  - Reset password screen
+     - (Update/PUT) Reset forgotten password for the user
+
+
+
+
