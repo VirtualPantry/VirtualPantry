@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */; };
 		18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */; };
+		18D1A117256979A40069940C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A116256979A40069940C /* BackButton.swift */; };
+		18D1A11C25697ACC0069940C /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A11B25697ACC0069940C /* SignUpButton.swift */; };
+		18D1A12125697C0E0069940C /* resetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A12025697C0E0069940C /* resetButton.swift */; };
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
 		18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
@@ -56,6 +59,9 @@
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
 		185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		18D1A116256979A40069940C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		18D1A11B25697ACC0069940C /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
+		18D1A12025697C0E0069940C /* resetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetButton.swift; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				AF6A18B92558E16200854288 /* RegularSignInButton.swift */,
+				18D1A116256979A40069940C /* BackButton.swift */,
+				18D1A11B25697ACC0069940C /* SignUpButton.swift */,
+				18D1A12025697C0E0069940C /* resetButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -548,11 +557,14 @@
 				AF6A17D32557DAE100854288 /* LoginViewController.swift in Sources */,
 				18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */,
 				18D9E9542560913D00D656B2 /* constant.swift in Sources */,
+				18D1A117256979A40069940C /* BackButton.swift in Sources */,
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
 				AFA185C3256394D000DBA553 /* SettingViewController.swift in Sources */,
+				18D1A12125697C0E0069940C /* resetButton.swift in Sources */,
 				AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
 				18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */,
+				18D1A11C25697ACC0069940C /* SignUpButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
