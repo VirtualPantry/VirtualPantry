@@ -129,7 +129,7 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 ### Models
 # Users
 | Property | Type | Description |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- |
 | User ID  | String  | unique ID corresponding to the user object (auto-generated) as a document |
 | name  | String  | account owner's name |
 | password | String | account password |
