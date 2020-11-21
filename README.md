@@ -164,13 +164,13 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 # History Items
 | Property | Type | Description |
 | ------------- | ------------- | ------------- |
-| User ID  | String  | unique ID corresponding to the user object (auto-generated) as a document |
-| name  | String  | account owner's name |
-| password | String | account password |
-| email | String | account owner's email for login |
-| groceryItems | String array | list of grocery item ID's as String |
-| pantryItems | String array | list of pantry item ID's as String |
-| historyItems | String array | list of history item ID's as String |
+| History ID  | String  | unique ID corresponding to the History object (auto-generated) as a document |
+| name  | String  | history item's name |
+| description | String | history item's description |
+| quantity | number | quantity of history item |
+| picture | String | URL of picture |
+| price | number | price of history item |
+
 
 
 ### Networking
