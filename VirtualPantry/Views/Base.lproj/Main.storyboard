@@ -397,7 +397,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1cg-Ic-9nF"/>
-                        <color key="backgroundColor" red="0.12178368595388554" green="0.15922192560708559" blue="0.17306913860103623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.20000000000000001" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1cg-Ic-9nF" firstAttribute="trailing" secondItem="apy-ef-cjL" secondAttribute="trailing" constant="40" id="TpO-fK-kAM"/>
                             <constraint firstItem="apy-ef-cjL" firstAttribute="top" secondItem="1cg-Ic-9nF" secondAttribute="top" constant="40" id="bx7-H2-26Z"/>
@@ -433,16 +433,16 @@
     </scenes>
     <designables>
         <designable name="AXu-f1-Yso">
-            <size key="intrinsicContentSize" width="30" height="34"/>
+            <size key="intrinsicContentSize" width="44" height="34"/>
         </designable>
         <designable name="OyI-Yz-nfE">
             <size key="intrinsicContentSize" width="39" height="30"/>
         </designable>
         <designable name="Pc0-2c-tpu">
-            <size key="intrinsicContentSize" width="46" height="30"/>
+            <size key="intrinsicContentSize" width="34" height="30"/>
         </designable>
         <designable name="R7m-Cd-Ugx">
-            <size key="intrinsicContentSize" width="46" height="30"/>
+            <size key="intrinsicContentSize" width="34" height="30"/>
         </designable>
         <designable name="V4K-CP-cOr">
             <size key="intrinsicContentSize" width="54" height="30"/>
@@ -452,7 +452,6 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Prm-Ag-Bx6"/>
         <segue reference="MMG-QC-qu7"/>
     </inferredMetricsTieBreakers>
     <resources>
