@@ -155,13 +155,11 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 # Items
 | Property | Type | Description |
 | ------------- | ------------- | ------------- |
-| User ID  | String  | unique ID corresponding to the user object (auto-generated) as a document |
-| name  | String  | account owner's name |
-| password | String | account password |
-| email | String | account owner's email for login |
-| groceryItems | String array | list of grocery item ID's as String |
-| pantryItems | String array | list of pantry item ID's as String |
-| historyItems | String array | list of history item ID's as String |
+| Item ID  | String  | unique ID corresponding to the Item object (auto-generated) as a document |
+| name  | String  | item's name |
+| picture | String | corresponding URL to picture for item |
+| quantity | String | item quantity |
+| price | number | price of the item |
 
 # History Items
 | Property | Type | Description |
