@@ -147,9 +147,9 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 | quantity | String | pantry item quantity |
 | price | number | price of the pantry item |
 | picture | String | corresponding URL to picture for pantry item |
-| emergencyFlag | Boolean | whether the supply is low |
-| warningFlag | Boolean | whether the supply is moderate |
-| okayFlag | Boolean | whether the supply is normal |
+| emergencyFlag | number | user specified number for very low quantity |
+| warningFlag | number | user specified number for moderately low quantity |
+| okayFlag | number | user specificed number for sufficient quantity |
 
 
 # Items
