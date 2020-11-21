@@ -129,6 +129,5 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 ### Models
 [Add table of models]
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/getDataEndpoint" width=600>
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/setDataEndpoint" width=600>
