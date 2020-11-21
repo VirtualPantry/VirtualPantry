@@ -144,10 +144,11 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 | Pantry ID  | String  | unique ID corresponding to the pantryItem object (auto-generated) as a document |
 | name  | String  | pantry item's name |
 | description | String | description of the pantry item |
+| quantity | String | pantry item quantity |
 | price | number | price of the pantry item |
-| groceryItems | String array | list of grocery item ID's as String |
-| pantryItems | String array | list of pantry item ID's as String |
-| historyItems | String array | list of history item ID's as String |
+| emergencyFlag | Boolean | whether the supply is low |
+| warningFlag | Boolean | whether the supply is moderate |
+| okayFlag | Boolean | whether the supply is normal |
 
 
 # Items
