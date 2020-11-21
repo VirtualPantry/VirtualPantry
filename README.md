@@ -127,7 +127,36 @@ Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-P
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+# Users
+| Property | Type | Description |
+| ------------- | ------------- |
+| User ID  | String  | unique ID corresponding to the user object (auto-generated) as a document |
+| name  | String  | account owner's name |
+| password | String | account password |
+| email | String | account owner's email for login |
+| groceryItems | String array | list of grocery item ID's as String |
+| pantryItems | String array | list of pantry item ID's as String |
+| historyItems | String array | list of history item ID's as String |
+
+# Pantry Items
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+# Items
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+# History Items
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+
 ### Networking
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/setDataEndpoint.PNG" width=600>
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/getDataEndpoint.PNG" width=600>
