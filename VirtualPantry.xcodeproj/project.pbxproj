@@ -16,6 +16,7 @@
 		18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
 		57397BAD383EA3BE05B19FA9 /* Pods_VirtualPantry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */; };
+		AF1D0E39256A5FA400775E89 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */; };
 		AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A17992557D94D00854288 /* AppDelegate.swift */; };
 		AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A179B2557D94D00854288 /* SceneDelegate.swift */; };
 		AF6A17A12557D94D00854288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A179F2557D94D00854288 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		47F7FC34A7B3A7B2A8209E18 /* Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB0B002A287DE3A8B551114 /* Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		AF6A17962557D94D00854288 /* VirtualPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A17992557D94D00854288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6A179B2557D94D00854288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				18D1A116256979A40069940C /* BackButton.swift */,
 				18D1A11B25697ACC0069940C /* SignUpButton.swift */,
 				18D1A12025697C0E0069940C /* resetButton.swift */,
+				AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				18D1A117256979A40069940C /* BackButton.swift in Sources */,
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
 				AFA185C3256394D000DBA553 /* SettingViewController.swift in Sources */,
+				AF1D0E39256A5FA400775E89 /* GroceryItemCell.swift in Sources */,
 				18D1A12125697C0E0069940C /* resetButton.swift in Sources */,
 				AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
