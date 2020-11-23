@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -18,16 +18,19 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing = 90
-        let width = view.frame.size.width * 1000
-        layout.itemSize = CGSize(width: width,height: 3/2 * width)
+        
+        layout.minimumLineSpacing = 30
+        
+        let width = collectionView.frame.size.width
+        let height = collectionView.frame.size.height * 0.3
+        layout.itemSize = CGSize(width: width, height: height)
+        
     }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 500
+        return 4
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
