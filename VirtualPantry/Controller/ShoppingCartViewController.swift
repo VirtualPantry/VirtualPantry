@@ -22,18 +22,20 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         layout.minimumLineSpacing = 30
         
         let width = collectionView.frame.size.width
-        let height = collectionView.frame.size.height * 0.3
+        let height = collectionView.frame.size.height * 0.22
         layout.itemSize = CGSize(width: width, height: height)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 40
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
+//        cell.layer.cornerRadius = 10
+//        cell.layer.masksToBounds = true
         return cell
     }
     
