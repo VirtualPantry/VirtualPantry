@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18260184256C92340095F2A8 /* PantryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18260183256C92340095F2A8 /* PantryViewController.swift */; };
+		18260189256C92440095F2A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18260188256C92440095F2A8 /* SettingsViewController.swift */; };
 		185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */; };
 		18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */; };
 		18D1A117256979A40069940C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A116256979A40069940C /* BackButton.swift */; };
@@ -57,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
+		18260183256C92340095F2A8 /* PantryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryViewController.swift; sourceTree = "<group>"; };
+		18260188256C92440095F2A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		18D1A116256979A40069940C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
@@ -227,6 +231,8 @@
 				18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */,
 				185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */,
 				AFA185C2256394D000DBA553 /* SettingViewController.swift */,
+				18260183256C92340095F2A8 /* PantryViewController.swift */,
+				18260188256C92440095F2A8 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18260184256C92340095F2A8 /* PantryViewController.swift in Sources */,
 				185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */,
 				AF6A17D32557DAE100854288 /* LoginViewController.swift in Sources */,
 				18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */,
@@ -561,6 +568,7 @@
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
 				AFA185C3256394D000DBA553 /* SettingViewController.swift in Sources */,
 				18D1A12125697C0E0069940C /* resetButton.swift in Sources */,
+				18260189256C92440095F2A8 /* SettingsViewController.swift in Sources */,
 				AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
 				18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */,
