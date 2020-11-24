@@ -19,10 +19,10 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
-        layout.minimumLineSpacing = 30
+        layout.minimumLineSpacing = 15
         
         let width = collectionView.frame.size.width
-        let height = collectionView.frame.size.height * 0.22
+        let height = collectionView.frame.size.height * 0.30
         layout.itemSize = CGSize(width: width, height: height)
         
     }
@@ -34,8 +34,15 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
-//        cell.layer.cornerRadius = 10
-//        cell.layer.masksToBounds = true
+        
+        
+        // TODO : Move this logic into the grocery cell or make another image view
+        cell.groceryItemPicture.layer.cornerRadius = 15
+        cell.groceryItemPicture.clipsToBounds = true
+        cell.groceryItemPicture.layer.masksToBounds = false
+        cell.groceryItemPicture.layer.shadowRadius = 2
+        
+        
         return cell
     }
     
