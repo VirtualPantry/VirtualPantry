@@ -37,9 +37,6 @@ class GroceryItemCell: UICollectionViewCell {
         // Setup for the cell
         self.layer.cornerRadius = 40
         self.layer.masksToBounds = true
-       
-        
-        
     }
 
     @IBAction func selectedItem(_ sender: Any) {
