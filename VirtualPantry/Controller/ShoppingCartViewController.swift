@@ -42,10 +42,24 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         // TODO : Move this logic into the grocery cell or make another image view
         cell.groceryItemPicture.layer.cornerRadius = 15
         cell.groceryItemPicture.clipsToBounds = true
-        cell.groceryItemPicture.layer.masksToBounds = false
+        cell.groceryItemPicture.layer.masksToBounds = true
         cell.groceryItemPicture.layer.shadowRadius = 15
         
         return cell
+    }
+}
+
+extension UIImageView {
+    func applyshadowWithCorner(containerView : UIView, cornerRadious : CGFloat){
+        containerView.clipsToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOpacity = 1
+        containerView.layer.shadowOffset = CGSize.zero
+        containerView.layer.shadowRadius = 10
+        containerView.layer.cornerRadius = cornerRadious
+        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
+        self.clipsToBounds = true
+        self.layer.cornerRadius = cornerRadious
     }
 }
 
