@@ -144,7 +144,7 @@
             </objects>
             <point key="canvasLocation" x="1621.7391304347827" y="109.82142857142857"/>
         </scene>
-        <!--Item-->
+        <!--Shopping Cart-->
         <scene sceneID="pBq-wF-7zw">
             <objects>
                 <viewController storyboardIdentifier="ShoppingCart" modalPresentationStyle="fullScreen" id="rz2-tC-GR2" customClass="ShoppingCartViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
@@ -161,15 +161,15 @@
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYR-SB-CSY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.20000000000000001" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="WOm-GN-e8g"/>
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="WOm-GN-e8g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLl-LK-4i1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3986.9565217391309" y="112.5"/>
         </scene>
-        <!--Item-->
+        <!--Pantry-->
         <scene sceneID="WTK-ek-HUX">
             <objects>
                 <viewController id="yx6-tJ-gI7" sceneMemberID="viewController">
@@ -177,15 +177,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="W3v-bO-0kf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="tpf-BN-b7c"/>
+                    <tabBarItem key="tabBarItem" title="Pantry" image="minus.rectangle.portrait.fill" catalog="system" id="tpf-BN-b7c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDr-oC-Uwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4911" y="114"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="Axj-bL-sZu">
             <objects>
                 <viewController id="QFc-g6-lCa" customClass="SettingViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
@@ -203,9 +203,9 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lPB-W5-nDb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gK7-IQ-0Ud"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="person.fill" catalog="system" id="gK7-IQ-0Ud"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="signedOut" id="afD-22-CRx"/>
                     </connections>
@@ -452,14 +452,14 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="MMG-QC-qu7"/>
+        <segue reference="afD-22-CRx"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Google Sign In Button" width="187" height="57"/>
+        <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="minus.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="shopping-cart-colour" width="773.40997314453125" height="637.5999755859375"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
