@@ -55,15 +55,6 @@ class Edit_Add_ViewController: UIViewController {
         let user = Auth.auth().currentUser
         let uid = (user?.uid)!
         var addItems = [String]()
-        let docRef = db.collection("users").document(uid)
-        docRef.getDocument(source: .cache) { (document, error) in
-                    if let document = document {
-                        addItems = addItems.append(document.get("groceryItems") as! String) as! [String]
-                    } else {
-                        print("Document does not exist in cache")
-                    }
-                }
-        print(addItems)
         let error = validateFields()
         if error == nil {
             addItems.append(itemNameTextField.text!)
@@ -74,7 +65,7 @@ class Edit_Add_ViewController: UIViewController {
                                                                                 "price" : itemPrice.text!,
                                                                                 "quantity": currentQuantity.text!])
             
-            db.collection("users").document(uid).updateData(["groceryItems" : addItems])
+            db.collection("users").document(uid).updateData(["groceryItems" : FieldValue.arrayUnion(addItems)])
         } else {
             ProgressHUD.showError(error)
         }
