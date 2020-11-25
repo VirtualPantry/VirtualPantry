@@ -44,10 +44,11 @@ class LoginViewController: UIViewController {
                     self.errorLabel.text = error!.localizedDescription
                     self.errorLabel.alpha = 1
                 } else {
-                    let shoppingCart =  self.storyboard?.instantiateViewController(identifier: constant.StoryBoard.cartVC) as? ShoppingCartViewController
+                    //let shoppingCart =  self.storyboard?.instantiateViewController(identifier: constant.StoryBoard.cartVC) as? ShoppingCartViewController
                      
-                    self.view.window?.rootViewController = shoppingCart
-                    self.view.window?.makeKeyAndVisible()
+                   // self.view.window?.rootViewController = shoppingCart
+                    //self.view.window?.makeKeyAndVisible()
+                    self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
                 }
             }
         } else {
