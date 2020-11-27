@@ -12,6 +12,7 @@ target 'VirtualPantry' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'ProgressHUD'
+  pod 'AlamofireImage'
 
   target 'VirtualPantryTests' do
     inherit! :search_paths
