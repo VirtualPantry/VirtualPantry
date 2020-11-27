@@ -129,7 +129,8 @@ Figma - https://www.figma.com/fie/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pa
 <img src='http://g.recordit.co/VQixCoz1Y6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/r9nWJRZKJa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='http://g.recordit.co/pbEtfoDS7y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/resetPass.PNG" width=600>
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/updateFirebase.PNG" width=600>
 
 
 ## Schema 
