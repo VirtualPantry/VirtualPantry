@@ -24,14 +24,12 @@ The following iOS application called Virtual Pantry will automate an shopping li
 
 **Required Must-have Stories**
 
-* Users can sign in and sign up with Google or Email/Password
-* User can reset password 
-* User can change password
-* User can change email  
-* User can view items from the pantry 
-* User can view items from the grocery list 
-* Add item manually to pantry 
-* Add item manually to the grocery list
+* [x] Users can sign in and sign up with Google or Email/Password
+* [x] User can reset password   
+* [x] User can view items from the pantry 
+* [x] User can view items from the grocery list 
+* [x] Add item manually to pantry 
+* [x] Add item manually to the grocery list
 * Send item from grocery to pantry 
 * Send item from pantry to grocery 
 * Remove item from grocery list
