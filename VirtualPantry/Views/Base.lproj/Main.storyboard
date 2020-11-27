@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l1Z-ch-RAf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l1Z-ch-RAf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxW-ZD-aYk" customClass="GIDSignInButton">
-                                <rect key="frame" x="212" y="490.33333333333326" width="187" height="57"/>
+                                <rect key="frame" x="212" y="489" width="187" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="Vxv-nq-0Xm"/>
                                     <constraint firstAttribute="height" constant="57" id="Zo7-Cu-DDv"/>
@@ -34,7 +34,7 @@
                                 <state key="normal" image="Google Sign In Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXu-f1-Yso" customClass="RegularSignInButton" customModule="VirtualPantry" customModuleProvider="target">
-                                <rect key="frame" x="5" y="490.33333333333326" width="187" height="57"/>
+                                <rect key="frame" x="5" y="489" width="187" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="Bwc-K8-7jP"/>
                                     <constraint firstAttribute="height" constant="57" id="VWI-Ja-8OO"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4K-CP-cOr" customClass="SignUpButton" customModule="VirtualPantry" customModuleProvider="target">
-                                <rect key="frame" x="120" y="587.33333333333337" width="174" height="30"/>
+                                <rect key="frame" x="120" y="586" width="174" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Sign Up">
@@ -62,29 +62,29 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uib-P0-Xhy">
-                                <rect key="frame" x="40" y="235" width="334" height="215.33333333333337"/>
+                                <rect key="frame" x="40" y="235" width="334" height="214"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4v-LB-Use">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="57.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="48"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vvB-gF-F22">
-                                        <rect key="frame" x="0.0" y="77.333333333333314" width="334" height="34"/>
+                                        <rect key="frame" x="0.0" y="76" width="334" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bEU-bP-9NN">
-                                        <rect key="frame" x="0.0" y="131.33333333333331" width="334" height="34"/>
+                                        <rect key="frame" x="0.0" y="130" width="334" height="34"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cRr-xM-mSk">
-                                        <rect key="frame" x="0.0" y="185.33333333333331" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="184" width="334" height="30"/>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
                                                 <fragment content="Forgot your password?">
@@ -141,7 +141,7 @@
                         <outlet property="emailField" destination="vvB-gF-F22" id="GdX-5h-phb"/>
                         <outlet property="errorLabel" destination="Oaj-ZW-5Qi" id="t7M-LF-Frr"/>
                         <outlet property="passwordField" destination="bEU-bP-9NN" id="WDw-CS-OuP"/>
-                        <segue destination="Vfe-bi-I5K" kind="show" identifier="signInSuccessFul" id="fZ8-I7-ECN"/>
+                        <segue destination="Vfe-bi-I5K" kind="presentation" identifier="signInSuccessFul" id="fZ8-I7-ECN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -153,7 +153,7 @@
             <objects>
                 <viewController storyboardIdentifier="ShoppingCart" modalPresentationStyle="fullScreen" id="rz2-tC-GR2" customClass="ShoppingCartViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1v8-MV-ybS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Search Item Here" translatesAutoresizingMaskIntoConstraints="NO" id="apW-AN-uXv">
@@ -161,7 +161,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.2006422877" green="0.29466509819999998" blue="0.33731922510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" red="0.2006422877" green="0.29466509819999998" blue="0.33731922510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <scopeButtonTitles>
@@ -182,14 +182,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-Fo-Zgz" customClass="MenuButton" customModule="VirtualPantry" customModuleProvider="target">
-                                <rect key="frame" x="350" y="46" width="54" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="line.horizontal.3" catalog="system"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-dO-lEe" customClass="SendGroceryItemsButton" customModule="VirtualPantry" customModuleProvider="target">
                                 <rect key="frame" x="213" y="685" width="174" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -239,7 +231,7 @@
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nf-rl-k9g">
-                                                    <rect key="frame" x="123" y="63" width="71" height="17"/>
+                                                    <rect key="frame" x="115" y="63" width="71" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -264,6 +256,14 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-Fo-Zgz" customClass="MenuButton" customModule="VirtualPantry" customModuleProvider="target">
+                                <rect key="frame" x="350" y="93" width="54" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="line.horizontal.3" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYR-SB-CSY"/>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.20000000000000001" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
@@ -271,6 +271,7 @@
                     <navigationItem key="navigationItem" id="U92-9p-ALY"/>
                     <connections>
                         <outlet property="collectionView" destination="poq-s9-rze" id="ANH-xz-6vg"/>
+                        <outlet property="menuButton" destination="Hhl-Fo-Zgz" id="MQN-ai-faU"/>
                         <outlet property="searchBar" destination="apW-AN-uXv" id="aX4-YO-nx6"/>
                     </connections>
                 </viewController>
@@ -283,7 +284,7 @@
             <objects>
                 <viewController id="yx6-tJ-gI7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sB8-1y-9jC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="W3v-bO-0kf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -299,7 +300,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="QFc-g6-lCa" customClass="SettingViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="He0-Ho-Ddl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3w-O5-jOA">
@@ -354,16 +355,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="tBi-oy-9Fa">
-                                <rect key="frame" x="40" y="225" width="334" height="455"/>
+                                <rect key="frame" x="40" y="225" width="334" height="457"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Sign Up with Virtual Pantry" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-Qs-nvw">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="74.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="76.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SFProRounded-Bold" family="SF Pro Rounded" pointSize="32"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-cM-c7f">
-                                        <rect key="frame" x="0.0" y="114.66666666666669" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="116.66666666666669" width="334" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="PQw-sr-cmq"/>
@@ -372,7 +373,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IT4-Df-dAK">
-                                        <rect key="frame" x="0.0" y="194.66666666666669" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="196.66666666666669" width="334" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GQ4-IB-RxG"/>
@@ -382,7 +383,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rtr-Dl-UET">
-                                        <rect key="frame" x="0.0" y="274.66666666666669" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="276.66666666666669" width="334" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="V7k-sy-2Wa"/>
@@ -392,7 +393,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="9Du-pE-4ur">
-                                        <rect key="frame" x="0.0" y="354.66666666666663" width="334" height="40"/>
+                                        <rect key="frame" x="0.0" y="356.66666666666663" width="334" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIH-9g-YyA" customClass="SignUpButton" customModule="VirtualPantry" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="208" height="40"/>
@@ -417,7 +418,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWs-3Z-mf1">
-                                        <rect key="frame" x="0.0" y="434.66666666666663" width="334" height="20.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="436.66666666666663" width="334" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
@@ -547,7 +548,6 @@
                     <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="WOm-GN-e8g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxt-uK-2zN">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -566,7 +566,6 @@
                     <tabBarItem key="tabBarItem" title="Pantry" image="house.fill" catalog="system" id="tpf-BN-b7c"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwd-kL-bcg">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -585,7 +584,6 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="gK7-IQ-0Ud"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UXV-sx-O7c">
-                        <rect key="frame" x="0.0" y="-54" width="0.0" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -600,22 +598,22 @@
     </scenes>
     <designables>
         <designable name="AXu-f1-Yso">
-            <size key="intrinsicContentSize" width="44" height="34"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="Hhl-Fo-Zgz">
             <size key="intrinsicContentSize" width="21" height="63"/>
         </designable>
         <designable name="Mu5-dO-lEe">
-            <size key="intrinsicContentSize" width="136" height="30"/>
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="OyI-Yz-nfE">
             <size key="intrinsicContentSize" width="39" height="30"/>
         </designable>
         <designable name="Pc0-2c-tpu">
-            <size key="intrinsicContentSize" width="34" height="30"/>
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
         <designable name="R7m-Cd-Ugx">
-            <size key="intrinsicContentSize" width="34" height="30"/>
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
         <designable name="V4K-CP-cOr">
             <size key="intrinsicContentSize" width="54" height="30"/>

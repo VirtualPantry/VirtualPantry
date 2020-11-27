@@ -30,5 +30,49 @@ class MenuButton: UIButton {
     // Configure the button
     func setup(){
         self.layer.cornerRadius = 9
+        self.menu = createMenu()
+        self.showsMenuAsPrimaryAction = true
     }
+    
+    // Creating the Menu
+    func createMenu() -> UIMenu {
+        
+      let exportedSelectedItems = UIAction(
+        title: "Export Selected Item",
+        image: UIImage(systemName: "arrowshape.turn.up.left.fill")
+      ) { (_) in
+        print("New Photo from Camera")
+      }
+        
+        
+     let addItem = UIAction(
+        title: "Add Item Manually",
+        image: UIImage(systemName: "plus")
+      ) { (_) in
+        print("New Photo from Camera")
+      }
+        
+      let exportAll = UIAction(
+           title: "Export all Items",
+           image: UIImage(systemName: "arrowshape.turn.up.left.2.fill")
+         ) { (_) in
+           print("New Photo from Camera")
+    }
+        
+    let removeAll = UIAction(
+        title: "Remove all Items",
+        image: UIImage(systemName: "delete.left"), attributes: UIMenuElement.Attributes.destructive
+        ) { (_) in
+        print("New Photo from Camera")
+    }
+        
+        
+    let menuActions = [addItem,exportedSelectedItems, exportAll,removeAll]
+      
+    let addNewMenu = UIMenu(
+      title: "",
+      children: menuActions)
+      
+      return addNewMenu
+  }
 }

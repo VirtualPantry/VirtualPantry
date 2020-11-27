@@ -7,10 +7,14 @@
 
 import UIKit
 
-class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource{
+class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate{
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var menuButton: MenuButton!
+    var dummyFood : [String] = ["Aoritos", "Pudding", "Steak"]
+    var filteredData: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         // Configuring the collection view
         collectionView.delegate = self
         collectionView.dataSource = self
+        searchBar.delegate = self
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 15
         let width = collectionView.frame.size.width
@@ -27,17 +32,21 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         // Configure the search bar
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
-       
+        
+        filteredData = dummyFood
     }
     
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return filteredData.count
     }
     
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
+        
+        cell.nameLabel.text = filteredData[indexPath.row]
+        
         
         // TODO : Move this logic into the grocery cell or make another image view
         cell.groceryItemPicture.layer.cornerRadius = 15
@@ -46,6 +55,16 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         cell.groceryItemPicture.layer.shadowRadius = 15
         
         return cell
+    }
+    
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = searchText.isEmpty ? dummyFood : dummyFood.filter { (item: String) -> Bool in
+                    // If dataItem matches the searchText, return true to include it
+                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+                }
+        
+        collectionView.reloadData()
     }
 }
 

@@ -14,8 +14,7 @@ class GroceryItemCell: UICollectionViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var groceryItemPicture: UIImageView!
-    
-    
+
     required override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -37,6 +36,7 @@ class GroceryItemCell: UICollectionViewCell {
         // Setup for the cell
         self.layer.cornerRadius = 40
         self.layer.masksToBounds = true
+        self.isSelected = false
     }
 
     @IBAction func selectedItem(_ sender: Any) {
