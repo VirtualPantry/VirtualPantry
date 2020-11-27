@@ -4,7 +4,7 @@
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
-1. [Picture Updates](#Picture Updates)
+1. [Picture Updates](#PictureUpdates)
 2. [Schema](#Schema)
 
 
@@ -120,7 +120,7 @@ The following iOS application called Virtual Pantry will automate an shopping li
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1228.JPG" width=600>
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1229.JPG" width=600>
 
-## Picture Updates
+## PictureUpdates
 
 
 
