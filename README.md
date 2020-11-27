@@ -126,7 +126,9 @@ Figma - https://www.figma.com/fie/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pa
 ### [BONUS] Interactive Prototype
 
 ## Picture_Updates
-
+<img src='http://g.recordit.co/VQixCoz1Y6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/r9nWJRZKJa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/pbEtfoDS7y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 
