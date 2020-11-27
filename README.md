@@ -4,7 +4,7 @@
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
-1. [Picture Updates](#PictureUpdates)
+1. [Picture Updates](#Picture_Updates)
 2. [Schema](#Schema)
 
 
@@ -120,14 +120,15 @@ The following iOS application called Virtual Pantry will automate an shopping li
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1228.JPG" width=600>
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1229.JPG" width=600>
 
-## PictureUpdates
-
-
-
 
 ### [BONUS] Digital Wireframes & Mockups
-Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pantry-Mocks-Design?node-id=0%3A1
+Figma - https://www.figma.com/fie/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pantry-Mocks-Design?node-id=0%3A1
 ### [BONUS] Interactive Prototype
+
+## Picture_Updates
+
+
+
 
 ## Schema 
 [This section will be completed in Unit 9]
