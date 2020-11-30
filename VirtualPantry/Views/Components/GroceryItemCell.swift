@@ -9,7 +9,6 @@ import UIKit
 @IBDesignable
 class GroceryItemCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

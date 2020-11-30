@@ -7,7 +7,7 @@
 
 import UIKit
 @IBDesignable
-class MenuButton: UIButton {
+class GroceryListMenuButton: UIButton {
 
     // Called when we creating the button programmatically
     override init(frame: CGRect) {

@@ -1,20 +1,21 @@
 //
-//  ShoppingCartViewController.swift
+//  PantryViewController.swift
 //  VirtualPantry
 //
-//  Created by Shreyas Pant on 11/14/20.
+//  Created by Mathew Chanda on 11/27/20.
 //
 
 import UIKit
 
-class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate{
+class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var menuButton: GroceryListMenuButton!
     
     var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
+    var quantities : [Int] = [1,2,3]
     var filteredData: [String]!
     
     override func viewDidLoad() {
@@ -26,7 +27,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         searchBar.delegate = self
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 15
-        let width = collectionView.frame.size.width * 0.92 
+        let width = collectionView.frame.size.width * 0.92
         let height = collectionView.frame.size.height * 0.30
         layout.itemSize = CGSize(width: width, height: height)
         
@@ -44,42 +45,28 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
-        
-        cell.nameLabel.text = filteredData[indexPath.row]
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
         
         // TODO : Move this logic into the grocery cell or make another image view
-        cell.groceryItemPicture.layer.cornerRadius = 15
-        cell.groceryItemPicture.clipsToBounds = true
-        cell.groceryItemPicture.layer.masksToBounds = true
-        cell.groceryItemPicture.layer.shadowRadius = 15
+        cell.nameLabel.text = filteredData[indexPath.row]
+        cell.currentQuantity = quantities[indexPath.row]
+        cell.pantryItemPicture.layer.cornerRadius = 15
+        cell.pantryItemPicture.clipsToBounds = true
+        cell.pantryItemPicture.layer.masksToBounds = true
+        cell.pantryItemPicture.layer.shadowRadius = 15
+        cell.quantityLabel.text = "Quantity: \(quantities[indexPath.row])"
+        cell.setColor()
         
         return cell
     }
-    
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? dummyFood : dummyFood.filter { (item: String) -> Bool in
                     // If dataItem matches the searchText, return true to include it
                     return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                }
+        }
         
         collectionView.reloadData()
-    }
-}
-
-extension UIImageView {
-    func applyshadowWithCorner(containerView : UIView, cornerRadious : CGFloat){
-        containerView.clipsToBounds = false
-        containerView.layer.shadowColor = UIColor.black.cgColor
-        containerView.layer.shadowOpacity = 1
-        containerView.layer.shadowOffset = CGSize.zero
-        containerView.layer.shadowRadius = 10
-        containerView.layer.cornerRadius = cornerRadious
-        containerView.layer.shadowPath = UIBezierPath(roundedRect: containerView.bounds, cornerRadius: cornerRadious).cgPath
-        self.clipsToBounds = true
-        self.layer.cornerRadius = cornerRadious
     }
 }
 
