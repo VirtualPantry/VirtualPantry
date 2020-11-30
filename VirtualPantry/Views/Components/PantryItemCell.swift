@@ -12,6 +12,7 @@ class PantryItemCell: UICollectionViewCell {
     @IBOutlet weak var pantryItemPicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var expirationDateLabel: UILabel!
     
     var emergencyFlag : Int = 1
@@ -50,56 +51,63 @@ class PantryItemCell: UICollectionViewCell {
     
     func setColor(){
         guard let quantity = currentQuantity
-        
+
         else{
-            self.contentView.backgroundColor = UIColor.white
-            nameLabel?.textColor = UIColor.black
-            quantityLabel?.textColor = UIColor.black
-            expirationDateLabel?.textColor = UIColor.black
             return
         }
-        
+
         if(quantity == okayFlag){
             let headerColor = UIColor(hexString: "#3DD598")
             let textColor = UIColor(hexString: "#329A75")
             let backgroundColor = UIColor(hexString: "#286053")
             self.contentView.backgroundColor = backgroundColor
             nameLabel?.textColor = headerColor
+            nameLabel?.highlightedTextColor = headerColor
             quantityLabel?.textColor = textColor
+            quantityLabel?.highlightedTextColor = textColor
             expirationDateLabel?.textColor = textColor
+            expirationDateLabel?.highlightedTextColor = textColor
         }
-        
+
         else if(quantity == warningFlag){
             let headerColor = UIColor(hexString: "#FFC542")
             let textColor = UIColor(hexString: "#B0903D")
             let backgroundColor = UIColor(hexString: "#625B39")
             self.contentView.backgroundColor = backgroundColor
             nameLabel?.textColor = headerColor
+            nameLabel?.highlightedTextColor = headerColor
             quantityLabel?.textColor = textColor
+            quantityLabel?.highlightedTextColor = textColor
             expirationDateLabel?.textColor = textColor
+            expirationDateLabel?.highlightedTextColor = textColor
         }
-        
+
         else if(quantity == emergencyFlag){
             let headerColor = UIColor(hexString: "#FF565E")
             let textColor = UIColor(hexString: "#B04850")
             let backgroundColor = UIColor(hexString: "#623A42")
             self.contentView.backgroundColor = backgroundColor
             nameLabel?.textColor = headerColor
+            nameLabel?.highlightedTextColor = headerColor
             quantityLabel?.textColor = textColor
+            quantityLabel?.highlightedTextColor = textColor
             expirationDateLabel?.textColor = textColor
+            expirationDateLabel?.highlightedTextColor = textColor
         }
+
     }
     
     @IBAction func selectedItem(_ sender: Any) {
-        self.isSelected = !isSelected
-        
-        if(self.isSelected == true){
+        if(switcher.isOn == true){
             self.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             nameLabel?.textColor = UIColor.black
             quantityLabel?.textColor = UIColor.black
             expirationDateLabel?.textColor = UIColor.black
+            nameLabel?.highlightedTextColor = UIColor.black
+            quantityLabel?.highlightedTextColor = UIColor.black
+            expirationDateLabel?.highlightedTextColor = UIColor.black
         }
-       
+        
         else{
             self.setColor()
         }
@@ -134,3 +142,7 @@ extension UIColor {
         return String(format:"#%06x", rgb)
     }
 }
+
+
+
+

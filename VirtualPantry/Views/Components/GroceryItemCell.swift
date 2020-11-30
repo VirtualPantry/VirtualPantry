@@ -13,7 +13,8 @@ class GroceryItemCell: UICollectionViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var groceryItemPicture: UIImageView!
-
+    @IBOutlet weak var switcher: UISwitch!
+    
     required override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -39,9 +40,7 @@ class GroceryItemCell: UICollectionViewCell {
     }
 
     @IBAction func selectedItem(_ sender: Any) {
-        self.isSelected = !isSelected
-        
-        if(self.isSelected == true){
+        if(self.switcher.isOn == true){
             self.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         }
        

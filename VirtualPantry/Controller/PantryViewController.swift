@@ -24,7 +24,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         // Configuring the collection view
         collectionView.delegate = self
         collectionView.dataSource = self
-        searchBar.delegate = self
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 15
         let width = collectionView.frame.size.width * 0.92
@@ -32,6 +31,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         layout.itemSize = CGSize(width: width, height: height)
         
         // Configure the search bar
+        searchBar.delegate = self
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
@@ -57,6 +57,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.quantityLabel.text = "Quantity: \(quantities[indexPath.row])"
         cell.setColor()
         
+        
         return cell
     }
 
@@ -68,6 +69,12 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         collectionView.reloadData()
     }
+    
+    
+    @IBAction func performSegue(_ sender: Any) {
+        self.performSegue(withIdentifier: "goAddItem", sender: self)
+    }
 }
+
 
 
