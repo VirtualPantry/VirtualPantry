@@ -9,14 +9,10 @@
 /* Begin PBXBuildFile section */
 		185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */; };
 		18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */; };
-		18D1A117256979A40069940C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A116256979A40069940C /* BackButton.swift */; };
-		18D1A11C25697ACC0069940C /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A11B25697ACC0069940C /* SignUpButton.swift */; };
-		18D1A12125697C0E0069940C /* resetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D1A12025697C0E0069940C /* resetButton.swift */; };
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
 		18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
 		57397BAD383EA3BE05B19FA9 /* Pods_VirtualPantry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */; };
-		AF1D0E39256A5FA400775E89 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */; };
 		AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A17992557D94D00854288 /* AppDelegate.swift */; };
 		AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A179B2557D94D00854288 /* SceneDelegate.swift */; };
 		AF6A17A12557D94D00854288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A179F2557D94D00854288 /* Main.storyboard */; };
@@ -33,11 +29,19 @@
 		AF6A18B22557E2D000854288 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF6A18AA2557E2D000854288 /* SF-Pro-Text-Semibold.otf */; };
 		AF6A18B32557E2D000854288 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF6A18AB2557E2D000854288 /* SF-Pro-Rounded-Bold.otf */; };
 		AF6A18B42557E2D000854288 /* SF-Pro-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF6A18AC2557E2D000854288 /* SF-Pro-Text-Heavy.otf */; };
-		AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A18B92558E16200854288 /* RegularSignInButton.swift */; };
+		AF79A2A6257623C3006D75A6 /* RegularSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A29B257623C3006D75A6 /* RegularSignInButton.swift */; };
+		AF79A2A7257623C3006D75A6 /* GroceryListMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A29C257623C3006D75A6 /* GroceryListMenuButton.swift */; };
+		AF79A2A8257623C3006D75A6 /* SendGroceryItemsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A29D257623C3006D75A6 /* SendGroceryItemsButton.swift */; };
+		AF79A2A9257623C3006D75A6 /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A29E257623C3006D75A6 /* SignUpButton.swift */; };
+		AF79A2AA257623C3006D75A6 /* GroceryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A29F257623C3006D75A6 /* GroceryItemCell.swift */; };
+		AF79A2AB257623C3006D75A6 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A0257623C3006D75A6 /* BackButton.swift */; };
+		AF79A2AC257623C3006D75A6 /* SendPantryItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A1257623C3006D75A6 /* SendPantryItemButton.swift */; };
+		AF79A2AD257623C3006D75A6 /* GroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A2257623C3006D75A6 /* GroceryCell.swift */; };
+		AF79A2AE257623C3006D75A6 /* PantryMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A3257623C3006D75A6 /* PantryMenuButton.swift */; };
+		AF79A2AF257623C3006D75A6 /* resetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A4257623C3006D75A6 /* resetButton.swift */; };
+		AF79A2B0257623C3006D75A6 /* PantryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79A2A5257623C3006D75A6 /* PantryItemCell.swift */; };
 		AFA185C3256394D000DBA553 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA185C2256394D000DBA553 /* SettingViewController.swift */; };
 		AFD83FA325590FF000729488 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFD83FA225590FF000729488 /* GoogleService-Info.plist */; };
-		AFFFE4B9256CCC1800D35B0F /* SendGroceryItemsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFFE4B8256CCC1800D35B0F /* SendGroceryItemsButton.swift */; };
-		AFFFE4BF256CD25500D35B0F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFFFE4BE256CD25500D35B0F /* MenuButton.swift */; };
 		E61F862EF31F2460F35ECAAC /* Pods_VirtualPantryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27F78627C345B43571CE201 /* Pods_VirtualPantryTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,16 +66,12 @@
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
 		185F718D25632AFC00250C0B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		18A97FC325604F1A00B1B8D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		18D1A116256979A40069940C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		18D1A11B25697ACC0069940C /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
-		18D1A12025697C0E0069940C /* resetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resetButton.swift; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		18D9E95B2560943C00D656B2 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47F7FC34A7B3A7B2A8209E18 /* Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CB0B002A287DE3A8B551114 /* Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
 		AF6A17962557D94D00854288 /* VirtualPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VirtualPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A17992557D94D00854288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6A179B2557D94D00854288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,11 +94,19 @@
 		AF6A18AA2557E2D000854288 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
 		AF6A18AB2557E2D000854288 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
 		AF6A18AC2557E2D000854288 /* SF-Pro-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Heavy.otf"; sourceTree = "<group>"; };
-		AF6A18B92558E16200854288 /* RegularSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSignInButton.swift; sourceTree = "<group>"; };
+		AF79A29B257623C3006D75A6 /* RegularSignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularSignInButton.swift; sourceTree = "<group>"; };
+		AF79A29C257623C3006D75A6 /* GroceryListMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListMenuButton.swift; sourceTree = "<group>"; };
+		AF79A29D257623C3006D75A6 /* SendGroceryItemsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendGroceryItemsButton.swift; sourceTree = "<group>"; };
+		AF79A29E257623C3006D75A6 /* SignUpButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
+		AF79A29F257623C3006D75A6 /* GroceryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItemCell.swift; sourceTree = "<group>"; };
+		AF79A2A0257623C3006D75A6 /* BackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		AF79A2A1257623C3006D75A6 /* SendPantryItemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendPantryItemButton.swift; sourceTree = "<group>"; };
+		AF79A2A2257623C3006D75A6 /* GroceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryCell.swift; sourceTree = "<group>"; };
+		AF79A2A3257623C3006D75A6 /* PantryMenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryMenuButton.swift; sourceTree = "<group>"; };
+		AF79A2A4257623C3006D75A6 /* resetButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resetButton.swift; sourceTree = "<group>"; };
+		AF79A2A5257623C3006D75A6 /* PantryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PantryItemCell.swift; sourceTree = "<group>"; };
 		AFA185C2256394D000DBA553 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AFD83FA225590FF000729488 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AFFFE4B8256CCC1800D35B0F /* SendGroceryItemsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendGroceryItemsButton.swift; sourceTree = "<group>"; };
-		AFFFE4BE256CD25500D35B0F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		D5D4CB5C402BE0CC59631AB8 /* Pods-VirtualPantryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantry_VirtualPantryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27F78627C345B43571CE201 /* Pods_VirtualPantryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,7 +219,7 @@
 		AF6A17CC2557DA2F00854288 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AF6A18B82558E14200854288 /* Components */,
+				AF79A29A257623C3006D75A6 /* Components */,
 				AF6A17A42557D94E00854288 /* LaunchScreen.storyboard */,
 				AF6A179F2557D94D00854288 /* Main.storyboard */,
 			);
@@ -252,16 +260,20 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		AF6A18B82558E14200854288 /* Components */ = {
+		AF79A29A257623C3006D75A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				AF6A18B92558E16200854288 /* RegularSignInButton.swift */,
-				18D1A116256979A40069940C /* BackButton.swift */,
-				18D1A11B25697ACC0069940C /* SignUpButton.swift */,
-				18D1A12025697C0E0069940C /* resetButton.swift */,
-				AF1D0E38256A5FA400775E89 /* GroceryItemCell.swift */,
-				AFFFE4B8256CCC1800D35B0F /* SendGroceryItemsButton.swift */,
-				AFFFE4BE256CD25500D35B0F /* MenuButton.swift */,
+				AF79A29B257623C3006D75A6 /* RegularSignInButton.swift */,
+				AF79A29C257623C3006D75A6 /* GroceryListMenuButton.swift */,
+				AF79A29D257623C3006D75A6 /* SendGroceryItemsButton.swift */,
+				AF79A29E257623C3006D75A6 /* SignUpButton.swift */,
+				AF79A29F257623C3006D75A6 /* GroceryItemCell.swift */,
+				AF79A2A0257623C3006D75A6 /* BackButton.swift */,
+				AF79A2A1257623C3006D75A6 /* SendPantryItemButton.swift */,
+				AF79A2A2257623C3006D75A6 /* GroceryCell.swift */,
+				AF79A2A3257623C3006D75A6 /* PantryMenuButton.swift */,
+				AF79A2A4257623C3006D75A6 /* resetButton.swift */,
+				AF79A2A5257623C3006D75A6 /* PantryItemCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -562,21 +574,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF79A2A7257623C3006D75A6 /* GroceryListMenuButton.swift in Sources */,
 				185F718E25632AFC00250C0B /* ForgotPasswordViewController.swift in Sources */,
 				AF6A17D32557DAE100854288 /* LoginViewController.swift in Sources */,
-				AFFFE4BF256CD25500D35B0F /* MenuButton.swift in Sources */,
 				18D9E95C2560943C00D656B2 /* ShoppingCartViewController.swift in Sources */,
+				AF79A2A6257623C3006D75A6 /* RegularSignInButton.swift in Sources */,
 				18D9E9542560913D00D656B2 /* constant.swift in Sources */,
-				18D1A117256979A40069940C /* BackButton.swift in Sources */,
+				AF79A2AC257623C3006D75A6 /* SendPantryItemButton.swift in Sources */,
+				AF79A2AF257623C3006D75A6 /* resetButton.swift in Sources */,
+				AF79A2AD257623C3006D75A6 /* GroceryCell.swift in Sources */,
+				AF79A2AE257623C3006D75A6 /* PantryMenuButton.swift in Sources */,
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
+				AF79A2AA257623C3006D75A6 /* GroceryItemCell.swift in Sources */,
+				AF79A2A8257623C3006D75A6 /* SendGroceryItemsButton.swift in Sources */,
 				AFA185C3256394D000DBA553 /* SettingViewController.swift in Sources */,
-				AF1D0E39256A5FA400775E89 /* GroceryItemCell.swift in Sources */,
-				AFFFE4B9256CCC1800D35B0F /* SendGroceryItemsButton.swift in Sources */,
-				18D1A12125697C0E0069940C /* resetButton.swift in Sources */,
-				AF6A18BA2558E16200854288 /* RegularSignInButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
+				AF79A2B0257623C3006D75A6 /* PantryItemCell.swift in Sources */,
 				18A97FC425604F1A00B1B8D2 /* SignUpViewController.swift in Sources */,
-				18D1A11C25697ACC0069940C /* SignUpButton.swift in Sources */,
+				AF79A2AB257623C3006D75A6 /* BackButton.swift in Sources */,
+				AF79A2A9257623C3006D75A6 /* SignUpButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
