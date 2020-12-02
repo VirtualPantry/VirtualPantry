@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l1Z-ch-RAf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="l1Z-ch-RAf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Bold.otf">
+            <string>SFProDisplay-Bold</string>
+        </array>
         <array key="SF-Pro-Rounded-Bold.otf">
             <string>SFProRounded-Bold</string>
         </array>
@@ -16,13 +20,13 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxW-ZD-aYk" customClass="GIDSignInButton">
-                                <rect key="frame" x="212" y="446.33333333333331" width="187" height="57"/>
+                                <rect key="frame" x="212" y="490.33333333333326" width="187" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="Vxv-nq-0Xm"/>
                                     <constraint firstAttribute="height" constant="57" id="Zo7-Cu-DDv"/>
@@ -30,7 +34,7 @@
                                 <state key="normal" image="Google Sign In Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXu-f1-Yso" customClass="RegularSignInButton" customModule="VirtualPantry" customModuleProvider="target">
-                                <rect key="frame" x="5" y="446.33333333333331" width="187" height="57"/>
+                                <rect key="frame" x="5" y="490.33333333333326" width="187" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="Bwc-K8-7jP"/>
                                     <constraint firstAttribute="height" constant="57" id="VWI-Ja-8OO"/>
@@ -40,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V4K-CP-cOr" customClass="SignUpButton" customModule="VirtualPantry" customModuleProvider="target">
-                                <rect key="frame" x="120" y="543.33333333333337" width="174" height="30"/>
+                                <rect key="frame" x="120" y="587.33333333333337" width="174" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Sign Up">
@@ -58,7 +62,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uib-P0-Xhy">
-                                <rect key="frame" x="40" y="191" width="334" height="215.33333333333337"/>
+                                <rect key="frame" x="40" y="235" width="334" height="215.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4v-LB-Use">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="57.333333333333336"/>
@@ -99,14 +103,14 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopping-cart-colour" translatesAutoresizingMaskIntoConstraints="NO" id="U5y-Q3-KKR">
-                                <rect key="frame" x="40" y="10" width="208" height="160"/>
+                                <rect key="frame" x="40" y="54" width="208" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="9kH-4g-uxs"/>
                                     <constraint firstAttribute="width" constant="208" id="wh5-XX-6yH"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oaj-ZW-5Qi">
-                                <rect key="frame" x="148" y="756.66666666666663" width="119" height="20.333333333333371"/>
+                                <rect key="frame" x="148" y="810.66666666666663" width="119" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,60 +141,293 @@
                         <outlet property="emailField" destination="vvB-gF-F22" id="GdX-5h-phb"/>
                         <outlet property="errorLabel" destination="Oaj-ZW-5Qi" id="t7M-LF-Frr"/>
                         <outlet property="passwordField" destination="bEU-bP-9NN" id="WDw-CS-OuP"/>
-                        <segue destination="Vfe-bi-I5K" kind="show" identifier="signInSuccessFul" id="fZ8-I7-ECN"/>
+                        <segue destination="Vfe-bi-I5K" kind="presentation" identifier="signInSuccessFul" id="fZ8-I7-ECN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1621.7391304347827" y="109.82142857142857"/>
         </scene>
-        <!--Shopping Cart-->
+        <!--Shopping Cart View Controller-->
         <scene sceneID="pBq-wF-7zw">
             <objects>
                 <viewController storyboardIdentifier="ShoppingCart" modalPresentationStyle="fullScreen" id="rz2-tC-GR2" customClass="ShoppingCartViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1v8-MV-ybS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Shopping " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ljn-lC-feJ">
-                                <rect key="frame" x="128" y="280" width="231" height="125"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Search Item Here" translatesAutoresizingMaskIntoConstraints="NO" id="apW-AN-uXv">
+                                <rect key="frame" x="0.0" y="162" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2006422877" green="0.29466509819999998" blue="0.33731922510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcZ-Ar-T3a">
+                                <rect key="frame" x="297" y="719" width="46" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.65490196078431373" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="poq-s9-rze">
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lSE-wL-SYy">
+                                    <size key="itemSize" width="373" height="143"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GroceryItemCell" id="dA0-zC-gca" customClass="GroceryItemCell" customModule="VirtualPantry" customModuleProvider="target">
+                                        <rect key="frame" x="20.666666666666668" y="0.0" width="373" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Px4-ga-DmP">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKC-Pj-oxi">
+                                                    <rect key="frame" x="117" y="27" width="60" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="81tfkQQmZuL._SL1500_" translatesAutoresizingMaskIntoConstraints="NO" id="g2c-e4-LWw">
+                                                    <rect key="frame" x="33" y="39" width="63" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price: $20.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEs-FZ-VRM">
+                                                    <rect key="frame" x="115.99999999999993" y="98" width="87" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uxp-wo-6PG">
+                                                    <rect key="frame" x="277" y="56" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
+                                                    <color key="thumbTintColor" systemColor="systemGroupedBackgroundColor"/>
+                                                    <connections>
+                                                        <action selector="selectedItem:" destination="dA0-zC-gca" eventType="valueChanged" id="Xxm-dk-6dJ"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nf-rl-k9g">
+                                                    <rect key="frame" x="115" y="63" width="71" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="373" height="143"/>
+                                        <connections>
+                                            <outlet property="groceryItemPicture" destination="g2c-e4-LWw" id="Lh0-Td-jmm"/>
+                                            <outlet property="nameLabel" destination="cKC-Pj-oxi" id="y5k-A8-fZ0"/>
+                                            <outlet property="priceLabel" destination="sEs-FZ-VRM" id="Dad-JJ-VfM"/>
+                                            <outlet property="quantityLabel" destination="8Nf-rl-k9g" id="eYP-eL-yWI"/>
+                                            <outlet property="switcher" destination="Uxp-wo-6PG" id="aNx-ba-D8Z"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shopping Cart" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KL-6q-JRu">
+                                <rect key="frame" x="23" y="87" width="315" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="48"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhl-Fo-Zgz" customClass="GroceryListMenuButton" customModule="VirtualPantry" customModuleProvider="target">
+                                <rect key="frame" x="350" y="93" width="54" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="line.horizontal.3" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-dO-lEe" customClass="SendGroceryItemsButton" customModule="VirtualPantry" customModuleProvider="target">
+                                <rect key="frame" x="23" y="719" width="174" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$180.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozf-zt-3Hj">
+                                <rect key="frame" x="297" y="756" width="97" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYR-SB-CSY"/>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.20000000000000001" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="WOm-GN-e8g"/>
+                    <navigationItem key="navigationItem" id="U92-9p-ALY"/>
+                    <connections>
+                        <outlet property="collectionView" destination="poq-s9-rze" id="ANH-xz-6vg"/>
+                        <outlet property="menuButton" destination="Hhl-Fo-Zgz" id="Wry-2u-0Zx"/>
+                        <outlet property="searchBar" destination="apW-AN-uXv" id="aX4-YO-nx6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLl-LK-4i1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986.9565217391309" y="112.5"/>
+            <point key="canvasLocation" x="3600.0000000000005" y="1849.5535714285713"/>
         </scene>
-        <!--Pantry-->
+        <!--Pantry View Controller-->
         <scene sceneID="WTK-ek-HUX">
             <objects>
                 <viewController id="yx6-tJ-gI7" customClass="PantryViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sB8-1y-9jC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Search Item Here" translatesAutoresizingMaskIntoConstraints="NO" id="1qn-Pm-a8B">
+                                <rect key="frame" x="0.0" y="127" width="414" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2006422877" green="0.29466509819999998" blue="0.33731922510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pantry" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fz-Yp-VXB">
+                                <rect key="frame" x="20" y="58" width="158" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="48"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="471-3k-7pr" customClass="PantryMenuButton" customModule="VirtualPantry" customModuleProvider="target">
+                                <rect key="frame" x="356" y="66" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                <state key="normal" image="line.horizontal.3" catalog="system">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ObZ-e4-Kfa">
+                                <rect key="frame" x="0.0" y="209" width="414" height="444"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ePX-V1-LUe">
+                                    <size key="itemSize" width="358.69999999999999" height="143"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PantryItemCell" id="2rE-nu-SZO" customClass="PantryItemCell" customModule="VirtualPantry" customModuleProvider="target">
+                                        <rect key="frame" x="15.333333333333334" y="0.0" width="383.33333333333331" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qPO-R4-ITA">
+                                            <rect key="frame" x="0.0" y="0.0" width="383.33333333333331" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2v-P9-oMw">
+                                                    <rect key="frame" x="117" y="27" width="190" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="81tfkQQmZuL._SL1500_" translatesAutoresizingMaskIntoConstraints="NO" id="ETD-Ql-NBN">
+                                                    <rect key="frame" x="33" y="39" width="63" height="68"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Expiration Date: Dec 20, 2020" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgH-2E-Q2R">
+                                                    <rect key="frame" x="115.9999999999997" y="98" width="194" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pik-Rx-uX0">
+                                                    <rect key="frame" x="115" y="63" width="142" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="swz-IE-Y1D">
+                                                    <rect key="frame" x="306" y="56" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
+                                                    <color key="thumbTintColor" systemColor="systemGroupedBackgroundColor"/>
+                                                    <connections>
+                                                        <action selector="selectedItem:" destination="2rE-nu-SZO" eventType="valueChanged" id="cBe-tW-bwQ"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </collectionViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <size key="customSize" width="383.33333333333331" height="143"/>
+                                        <connections>
+                                            <outlet property="expirationDateLabel" destination="VgH-2E-Q2R" id="MQU-q3-gfv"/>
+                                            <outlet property="nameLabel" destination="e2v-P9-oMw" id="gJi-08-Mpf"/>
+                                            <outlet property="pantryItemPicture" destination="ETD-Ql-NBN" id="UoZ-R8-kA0"/>
+                                            <outlet property="quantityLabel" destination="pik-Rx-uX0" id="ogI-TM-Lcv"/>
+                                            <outlet property="switcher" destination="swz-IE-Y1D" id="YsB-Aa-KMt"/>
+                                            <outletCollection property="gestureRecognizers" destination="7DV-7U-0qg" appends="YES" id="dsS-7G-Elt"/>
+                                            <segue destination="QFc-g6-lCa" kind="show" identifier="goAddItem" id="MAK-wi-Wat"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG0-zD-JC9">
+                                <rect key="frame" x="297" y="728" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.58823529409999997" green="0.65490196079999996" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ff-Wr-2uR" customClass="SendPantryItemButton" customModule="VirtualPantry" customModuleProvider="target">
+                                <rect key="frame" x="23" y="728" width="174" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$180.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbn-UQ-Wvg">
+                                <rect key="frame" x="297" y="765" width="97" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="W3v-bO-0kf"/>
                         <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pantry" image="minus.rectangle.portrait.fill" catalog="system" id="tpf-BN-b7c"/>
+                    <navigationItem key="navigationItem" id="kRj-Vs-I3g"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ObZ-e4-Kfa" id="iEP-tN-xQz"/>
+                        <outlet property="menuButton" destination="471-3k-7pr" id="iN3-Ak-vXp"/>
+                        <outlet property="searchBar" destination="1qn-Pm-a8B" id="kye-Hq-gqC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDr-oC-Uwc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7DV-7U-0qg">
+                    <connections>
+                        <action selector="performSegue:" destination="yx6-tJ-gI7" id="Wkz-oO-87T"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4911" y="114"/>
+            <point key="canvasLocation" x="4279.7101449275369" y="1849.5535714285713"/>
         </scene>
-        <!--Settings-->
+        <!--Setting View Controller-->
         <scene sceneID="Axj-bL-sZu">
             <objects>
-                <viewController id="QFc-g6-lCa" customClass="SettingViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="QFc-g6-lCa" customClass="SettingViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="He0-Ho-Ddl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3w-O5-jOA">
@@ -203,37 +440,38 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lPB-W5-nDb"/>
-                        <color key="backgroundColor" red="0.1333333333" green="0.20000000000000001" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="person.fill" catalog="system" id="gK7-IQ-0Ud"/>
+                    <navigationItem key="navigationItem" id="9Qf-x2-n35"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="signedOut" id="afD-22-CRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxs-tX-MFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5839" y="110"/>
+            <point key="canvasLocation" x="5978" y="1756"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ec3-K5-xOg">
             <objects>
-                <tabBarController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="Vfe-bi-I5K" sceneMemberID="viewController">
+                <tabBarController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Vfe-bi-I5K" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="OKm-ti-BHI"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O9p-oG-if5">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rz2-tC-GR2" kind="relationship" relationship="viewControllers" id="2Xf-5V-eiL"/>
-                        <segue destination="yx6-tJ-gI7" kind="relationship" relationship="viewControllers" id="Vmm-IN-oaD"/>
-                        <segue destination="QFc-g6-lCa" kind="relationship" relationship="viewControllers" id="ags-V7-7Qv"/>
+                        <segue destination="z6z-wz-PxA" kind="relationship" relationship="viewControllers" id="cEj-x1-RPA"/>
+                        <segue destination="LPY-zc-dOh" kind="relationship" relationship="viewControllers" id="Clp-aD-x8K"/>
+                        <segue destination="Pc0-gv-DUD" kind="relationship" relationship="viewControllers" id="9UZ-Aj-RRp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQ4-ym-N0H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3076.811594202899" y="112.5"/>
+            <point key="canvasLocation" x="4216" y="75"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="WCs-G4-i7r">
@@ -346,18 +584,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSh-8b-PvU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711.59420289855075" y="864.50892857142856"/>
+            <point key="canvasLocation" x="1622" y="1303"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="e9J-vv-Kkr">
             <objects>
-                <viewController id="aD0-fZ-r7M" customClass="ForgotPasswordViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="aD0-fZ-r7M" customClass="ForgotPasswordViewController" customModule="VirtualPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e0n-kv-Cpw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="apy-ef-cjL">
-                                <rect key="frame" x="40" y="40" width="334" height="258.66666666666669"/>
+                                <rect key="frame" x="40" y="84" width="334" height="258.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6X-JK-MjE">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="114.66666666666667"/>
@@ -411,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKI-3z-NjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="-590"/>
+            <point key="canvasLocation" x="1622" y="-1304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2bb-Wo-ByL">
@@ -428,21 +666,84 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g9V-MZ-bW2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711.59420289855075" y="109.82142857142857"/>
+            <point key="canvasLocation" x="-348" y="113"/>
+        </scene>
+        <!--Shopping Cart-->
+        <scene sceneID="h8f-VG-zwy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="z6z-wz-PxA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="WOm-GN-e8g"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxt-uK-2zN">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rz2-tC-GR2" kind="relationship" relationship="rootViewController" id="IfQ-vg-cOO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZf-a8-A0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673.913043478261" y="876.5625"/>
+        </scene>
+        <!--Pantry-->
+        <scene sceneID="72O-ff-hQc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="LPY-zc-dOh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pantry" image="house.fill" catalog="system" id="tpf-BN-b7c"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nwd-kL-bcg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yx6-tJ-gI7" kind="relationship" relationship="rootViewController" id="BYX-sY-vGd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6we-xG-J17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4279.7101449275369" y="885.9375"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="nHS-Yv-wGk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Pc0-gv-DUD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="gK7-IQ-0Ud"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UXV-sx-O7c">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QFc-g6-lCa" kind="relationship" relationship="rootViewController" id="Owk-XI-x5e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9v-Mu-EJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5978.2608695652179" y="885.9375"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="471-3k-7pr">
+            <size key="intrinsicContentSize" width="21" height="63"/>
+        </designable>
         <designable name="AXu-f1-Yso">
-            <size key="intrinsicContentSize" width="44" height="34"/>
+            <size key="intrinsicContentSize" width="30" height="34"/>
+        </designable>
+        <designable name="Hhl-Fo-Zgz">
+            <size key="intrinsicContentSize" width="21" height="63"/>
+        </designable>
+        <designable name="Mu5-dO-lEe">
+            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="OyI-Yz-nfE">
             <size key="intrinsicContentSize" width="39" height="30"/>
         </designable>
         <designable name="Pc0-2c-tpu">
-            <size key="intrinsicContentSize" width="34" height="30"/>
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
         <designable name="R7m-Cd-Ugx">
-            <size key="intrinsicContentSize" width="34" height="30"/>
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
         <designable name="V4K-CP-cOr">
             <size key="intrinsicContentSize" width="54" height="30"/>
@@ -452,14 +753,26 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="afD-22-CRx"/>
+        <segue reference="MAK-wi-Wat"/>
+        <segue reference="MMG-QC-qu7"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="81tfkQQmZuL._SL1500_" width="1500" height="1500"/>
         <image name="Google Sign In Button" width="187" height="57"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
-        <image name="minus.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="shopping-cart-colour" width="773.40997314453125" height="637.5999755859375"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
