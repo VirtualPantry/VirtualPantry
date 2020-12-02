@@ -75,6 +75,3 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         self.performSegue(withIdentifier: "goAddItem", sender: self)
     }
 }
-
-
-

@@ -4,7 +4,9 @@
 1. [Overview](#Overview)
 1. [Product Spec](#Product-Spec)
 1. [Wireframes](#Wireframes)
+1. [Picture Updates](#Picture_Updates)
 2. [Schema](#Schema)
+
 
 ## Overview
 ### Description
@@ -24,14 +26,12 @@ The following iOS application called Virtual Pantry will automate an shopping li
 
 **Required Must-have Stories**
 
-* Users can sign in and sign up with Google or Email/Password
-* User can reset password 
-* User can change password
-* User can change email  
-* User can view items from the pantry 
-* User can view items from the grocery list 
-* Add item manually to pantry 
-* Add item manually to the grocery list
+* [x] Users can sign in and sign up with Google or Email/Password
+* [x] User can reset password   
+* [x] User can view items from the pantry 
+* [x] User can view items from the grocery list 
+* [x] Add item manually to pantry 
+* [x] Add item manually to the grocery list
 * Send item from grocery to pantry 
 * Send item from pantry to grocery 
 * Remove item from grocery list
@@ -120,9 +120,18 @@ The following iOS application called Virtual Pantry will automate an shopping li
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1228.JPG" width=600>
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/IMG_1229.JPG" width=600>
 
+
 ### [BONUS] Digital Wireframes & Mockups
-Figma - https://www.figma.com/file/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pantry-Mocks-Design?node-id=0%3A1
+Figma - https://www.figma.com/fie/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pantry-Mocks-Design?node-id=0%3A1
 ### [BONUS] Interactive Prototype
+
+## Picture_Updates
+<img src='http://g.recordit.co/VQixCoz1Y6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/r9nWJRZKJa.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/pbEtfoDS7y.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/resetPass.PNG" width=600>
+<img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/updateFirebase.PNG" width=600>
+
 
 ## Schema 
 [This section will be completed in Unit 9]
