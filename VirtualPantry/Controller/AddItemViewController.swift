@@ -68,17 +68,18 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let quant = Double(self.quantity.text!)!
             let total = price * quant
             self.totalLabel.text = "$\(total)"
-            addItems.append(itemNameTextField.text!)
-            db.collection("pantryItems").document(itemNameTextField.text! + uid).setData([
-                                                                                "description": itemDescriptionTextField.text!,
-                                                                                "name": itemNameTextField.text!,
-                                                                    
-                                                                                "price" : itemPrice.text!,
-                                                                                "quantity": quantity.text!,
-                                                                                            "emergencyFlag": emergencyFlag.text!,
-                                                                                            "warningFlag" : warningFlag.text!,
-                                                                                            "okayFlag" : okFlag.text!])
-            
+            var ref: DocumentReference? = nil
+            ref = db.collection("pantryItems").addDocument(data:[
+                                                            "description": itemDescriptionTextField.text!,
+                                                            "name": itemNameTextField.text!,
+                                                
+                                                            "price" : itemPrice.text!,
+                                                            "quantity": quantity.text!,
+                                                                        "emergencyFlag": emergencyFlag.text!,
+                                                                        "warningFlag" : warningFlag.text!,
+                                                                        "okayFlag" : okFlag.text!])
+            let name = ref!.documentID
+            addItems.append(name)
             db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
 
 
