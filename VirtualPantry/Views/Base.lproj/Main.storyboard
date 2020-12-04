@@ -257,6 +257,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-dO-lEe" customClass="SendGroceryItemsButton" customModule="VirtualPantry" customModuleProvider="target">
                                 <rect key="frame" x="23" y="719" width="174" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sendGroceryItems:" destination="rz2-tC-GR2" eventType="touchUpInside" id="sVZ-rI-es1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$180.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozf-zt-3Hj">
                                 <rect key="frame" x="297" y="756" width="97" height="29"/>
@@ -394,6 +397,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ff-Wr-2uR" customClass="SendPantryItemButton" customModule="VirtualPantry" customModuleProvider="target">
                                 <rect key="frame" x="23" y="728" width="174" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sendPantryItem:" destination="yx6-tJ-gI7" eventType="touchUpInside" id="aFn-WF-UhB"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$180.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbn-UQ-Wvg">
                                 <rect key="frame" x="297" y="765" width="97" height="29"/>

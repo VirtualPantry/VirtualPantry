@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     
@@ -17,6 +18,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
     var quantities : [Int] = [1,2,3]
     var filteredData: [String]!
+    var delegate: Any?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         searchBar.delegate = self
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
-        
         filteredData = dummyFood
     }
     
@@ -70,8 +71,16 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         collectionView.reloadData()
     }
     
+    @IBAction func sendPantryItem(_ sender: Any) {
+        print(ShoppingCartViewController.dummyFood)
+        ShoppingCartViewController.dummyFood.append("Hello")
+        print(ShoppingCartViewController.dummyFood)
+        NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+    }
     
     @IBAction func performSegue(_ sender: Any) {
         self.performSegue(withIdentifier: "goAddItem", sender: self)
     }
+    
+    
 }
