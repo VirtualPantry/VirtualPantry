@@ -17,10 +17,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var itemNameTextField: UITextField!
     
     @IBOutlet weak var itemDescriptionTextField: UITextField!
-    
     @IBOutlet weak var itemPrice: UITextField!
     @IBOutlet weak var emergencyFlag: UITextField!
-    
     @IBOutlet weak var warningFlag: UITextField!
     
     @IBOutlet weak var totalLabel: UILabel!
@@ -74,6 +72,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 let name = ref!.documentID
                 addItems.append(name)
                 db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
+                print(addItems)
 
 
             } else {

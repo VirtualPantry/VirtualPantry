@@ -4,7 +4,6 @@
 //
 //  Created by Shreyas Pant on 11/14/20.
 //
-
 import UIKit
 import FirebaseAuth
 import Firebase
@@ -67,15 +66,16 @@ class SignUpViewController: UIViewController {
                     // Store name in database
                     let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["name": name,"uid":result!.user.uid]) { (error) in
+                    db.collection("users").document(result!.user.uid).setData(["name": name,"uid":result!.user.uid]) { (error) in
                         if error != nil {
                             self.showError("User data could not be saved")
                         }
                     }
                 }
             }
+            self.dismiss(animated: true, completion: nil)
             // Transition to the Shopping Cart
-            self.transition2ShoppingCart()
+            //self.transition2ShoppingCart()
             
         }
      
