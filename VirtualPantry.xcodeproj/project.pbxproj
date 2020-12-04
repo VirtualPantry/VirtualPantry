@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183AF0942579C62500E4304E /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF0932579C62500E4304E /* EditItemViewController.swift */; };
 		1852F5F82579A65D00DD6605 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852F5F72579A65D00DD6605 /* AddItemViewController.swift */; };
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
+		183AF0932579C62500E4304E /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		1852F5F72579A65D00DD6605 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				AF79A37D25762897006D75A6 /* LoginViewController.swift */,
 				AF79A37E25762897006D75A6 /* CustomNavigationController.swift */,
 				1852F5F72579A65D00DD6605 /* AddItemViewController.swift */,
+				183AF0932579C62500E4304E /* EditItemViewController.swift */,
 			);
 			name = Controller;
 			path = VirtualPantry/Controller;
@@ -586,6 +589,7 @@
 			files = (
 				AF79A2A7257623C3006D75A6 /* GroceryListMenuButton.swift in Sources */,
 				AF79A2A6257623C3006D75A6 /* RegularSignInButton.swift in Sources */,
+				183AF0942579C62500E4304E /* EditItemViewController.swift in Sources */,
 				18D9E9542560913D00D656B2 /* constant.swift in Sources */,
 				AF79A38025762897006D75A6 /* SettingViewController.swift in Sources */,
 				AF79A2AC257623C3006D75A6 /* SendPantryItemButton.swift in Sources */,

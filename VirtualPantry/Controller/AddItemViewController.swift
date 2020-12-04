@@ -52,6 +52,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.totalLabel.text = "$\(total)"
             return nil
         }
+    
         func sendDataToFirebase(_ sender: Any) {
             let db = Firestore.firestore()
             let user = Auth.auth().currentUser
