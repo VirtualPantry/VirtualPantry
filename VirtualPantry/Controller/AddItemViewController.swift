@@ -20,6 +20,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var itemPrice: UITextField!
     @IBOutlet weak var emergencyFlag: UITextField!
     @IBOutlet weak var warningFlag: UITextField!
+     var name: String?
     
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var okFlag: UITextField!
@@ -70,8 +71,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                                             "emergencyFlag": emergencyFlag.text!,
                                                                             "warningFlag" : warningFlag.text!,
                                                                             "okayFlag" : okFlag.text!])
-                let name = ref!.documentID
-                addItems.append(name)
+                name = ref!.documentID
+                PantryViewController.dummyFood.append(name!)
+                let quant = Int(quantity.text!)!
+                PantryViewController.quantities.append(quant)
+                addItems.append(name!)
                 db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
                 print(addItems)
 
@@ -85,6 +89,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         @IBAction func addTapped(_ sender: Any) {
             sendDataToFirebase(self)
+            //self.dismiss(animated: true, completion: nil)
         }
         
         @IBAction func cameraTapped(_ sender: Any) {
@@ -113,4 +118,5 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             db.collection("items").document(itemNameTextField.text! + uid).updateData([
                                                                                         "picture": itemPicture.image!])
         }
+
 }

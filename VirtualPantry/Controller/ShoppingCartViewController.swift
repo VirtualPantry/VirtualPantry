@@ -14,7 +14,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuButton: GroceryListMenuButton!
     
-    var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
+    static var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
     var filteredData: [String]!
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        filteredData = dummyFood
+        filteredData = ShoppingCartViewController.dummyFood
     }
     
     // Number of cells
@@ -60,7 +60,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? dummyFood : dummyFood.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? ShoppingCartViewController.dummyFood : ShoppingCartViewController.dummyFood.filter { (item: String) -> Bool in
                     // If dataItem matches the searchText, return true to include it
                     return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
                 }

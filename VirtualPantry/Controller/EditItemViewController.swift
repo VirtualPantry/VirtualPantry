@@ -12,8 +12,9 @@ class EditItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.displayCurrentItem(self)
-        // Do any additional setup after loading the view.
+        
     }
     
     
@@ -29,6 +30,7 @@ class EditItemViewController: UIViewController {
                 currentItem = pantryItems[0] as! String
             }
         }
+        
         let item = db.collection("pantryItems").document(currentItem)
         
         item.getDocument { (document, error) in
@@ -40,6 +42,7 @@ class EditItemViewController: UIViewController {
                 let wFlag = document.get("warningFlag")
                 let oFlag = document.get("okayFlag")
                 let quantity = document.get("quantity")
+                let picture = document.get("picture") ?? nil
                 
                 print(name!)
                 print(description!)

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseFirestore
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     
@@ -14,8 +14,8 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
-    var quantities : [Int] = [1,2,3]
+    static var dummyFood : [String] = []
+    static var quantities : [Int] = []
     var filteredData: [String]!
     
     override func viewDidLoad() {
@@ -29,13 +29,13 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let width = collectionView.frame.size.width * 0.92
         let height = collectionView.frame.size.height * 0.30
         layout.itemSize = CGSize(width: width, height: height)
-        
+        //create function which loops through users items
         // Configure the search bar
         searchBar.delegate = self
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        filteredData = dummyFood
+        filteredData = PantryViewController.dummyFood
     }
     
     // Number of cells
@@ -48,21 +48,33 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
         
         // TODO : Move this logic into the grocery cell or make another image view
-        cell.nameLabel.text = filteredData[indexPath.row]
-        cell.currentQuantity = quantities[indexPath.row]
+        let itemID = filteredData[indexPath.row]
+        let db = Firestore.firestore()
+        let item = db.collection("pantryItems").document(itemID)
+        
+        item.getDocument { (document, error) in
+            if let document = document {
+                let property = document.get("name")
+                cell.nameLabel.text = (property as! String)
+                print(property!)
+            } else {
+                print("Document does not exist in cache")
+            }
+        }
+    
+        cell.currentQuantity = PantryViewController.quantities[indexPath.row]
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
         cell.pantryItemPicture.layer.masksToBounds = true
         cell.pantryItemPicture.layer.shadowRadius = 15
-        cell.quantityLabel.text = "Quantity: \(quantities[indexPath.row])"
+        cell.quantityLabel.text = "Quantity: \(PantryViewController.quantities[indexPath.row])"
         cell.setColor()
-        
         
         return cell
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? dummyFood : dummyFood.filter { (item: String) -> Bool in
+        filteredData = searchText.isEmpty ? PantryViewController.dummyFood : PantryViewController.dummyFood.filter { (item: String) -> Bool in
                     // If dataItem matches the searchText, return true to include it
                     return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
@@ -71,7 +83,12 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     
-    @IBAction func performSegue(_ sender: Any) {
+    func performSegue(_ sender: Any) {
         self.performSegue(withIdentifier: "goAddItem", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //
+    }
+
 }

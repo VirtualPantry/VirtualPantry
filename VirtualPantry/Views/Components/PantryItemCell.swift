@@ -56,7 +56,7 @@ class PantryItemCell: UICollectionViewCell {
             return
         }
 
-        if(quantity == okayFlag){
+        if(quantity >= okayFlag){
             let headerColor = UIColor(hexString: "#3DD598")
             let textColor = UIColor(hexString: "#329A75")
             let backgroundColor = UIColor(hexString: "#286053")
@@ -69,7 +69,7 @@ class PantryItemCell: UICollectionViewCell {
             expirationDateLabel?.highlightedTextColor = textColor
         }
 
-        else if(quantity == warningFlag){
+        else if(quantity > emergencyFlag && quantity < okayFlag){
             let headerColor = UIColor(hexString: "#FFC542")
             let textColor = UIColor(hexString: "#B0903D")
             let backgroundColor = UIColor(hexString: "#625B39")
@@ -82,7 +82,7 @@ class PantryItemCell: UICollectionViewCell {
             expirationDateLabel?.highlightedTextColor = textColor
         }
 
-        else if(quantity == emergencyFlag){
+        else if(quantity <= emergencyFlag){
             let headerColor = UIColor(hexString: "#FF565E")
             let textColor = UIColor(hexString: "#B04850")
             let backgroundColor = UIColor(hexString: "#623A42")
