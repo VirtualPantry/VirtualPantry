@@ -19,6 +19,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         errorLabel.alpha = 0
 
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
