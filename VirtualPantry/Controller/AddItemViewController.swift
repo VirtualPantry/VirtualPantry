@@ -27,40 +27,40 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var quantity: UITextField!
     
-    private var datePicker: UIDatePicker?
     @IBOutlet weak var expirationDateTF: UITextField!
+    private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(AddItemViewController.dateChanged(datePicker:)), for: .valueChanged)
-        
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
-        view.addGestureRecognizer(tapGesture)
-        
-        expirationDateTF.inputView = datePicker
-        
-        
+           super.viewDidLoad()
+           
+           datePicker = UIDatePicker()
+           datePicker?.datePickerMode = .date
+           datePicker?.addTarget(self, action: #selector(AddItemViewController.dateChanged(datePicker:)), for: .valueChanged)
+           
+           
+           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
+           view.addGestureRecognizer(tapGesture)
+           
+           expirationDateTF.inputView = datePicker
+           
+           
 
-        // Do any additional setup after loading the view.
-    }
-    
-    @objc func viewTapped(gesture: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    
-    @objc func dateChanged(datePicker: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        expirationDateTF.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
-        
-        
-    }
+           // Do any additional setup after loading the view.
+       }
+       
+       @objc func viewTapped(gesture: UITapGestureRecognizer) {
+           view.endEditing(true)
+       }
+       
+       
+       @objc func dateChanged(datePicker: UIDatePicker) {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "MM/dd/yyyy"
+           expirationDateTF.text = dateFormatter.string(from: datePicker.date)
+           view.endEditing(true)
+           
+           
+       }
     
     
     func validateFields() -> String? {
@@ -94,15 +94,16 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 ref = db.collection("pantryItems").addDocument(data:[
                                                                 "description": itemDescriptionTextField.text!,
                                                                 "name": itemNameTextField.text!,
-                                                                "expireDate": expirationDateTF.text!,
-                                                                "price" : Int(itemPrice.text!) ?? 0,
+                                                                "expiration": expirationDateTF.text!,
+                                                    
+                                                                "price" : Int(itemPrice.text!)!,
                                                                 "quantity": Int(quantity.text!)!,
-                                                                "emergencyFlag": Int(emergencyFlag.text!)!,
-                                                                "warningFlag" : Int(warningFlag.text!)!,
-                                                                "okayFlag" : Int(okFlag.text!)!])
+                                                                            "emergencyFlag": emergencyFlag.text!,
+                                                                            "warningFlag" : warningFlag.text!,
+                                                                            "okayFlag" : okFlag.text!])
                 name = ref!.documentID
                 PantryViewController.foodDoc.append(name!)
-                //let quant = Int(quantity.text!)!
+               // let quant = Int(quantity.text!)!
                 //PantryViewController.quantities.append(quant)
                 addItems.append(name!)
                 db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
@@ -112,22 +113,22 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     
-        @IBAction func backTapped(_ sender: Any) {
-            _ = navigationController?.popViewController(animated: true)
-            NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
-        }
-        @IBAction func addTapped(_ sender: Any) {
-            if self.validateFields() == nil {
-                sendDataToFirebase(self)
+    @IBAction func backTapped(_ sender: Any) {
                 _ = navigationController?.popViewController(animated: true)
                 NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
-            } else {
-                ProgressHUD.showError(self.validateFields())
             }
+            @IBAction func addTapped(_ sender: Any) {
+                if self.validateFields() == nil {
+                    sendDataToFirebase(self)
+                    _ = navigationController?.popViewController(animated: true)
+                    NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+                } else {
+                    ProgressHUD.showError(self.validateFields())
+                }
 
-            
-            
-        }
+                
+                
+            }
         
         @IBAction func cameraTapped(_ sender: Any) {
             let picker = UIImagePickerController()

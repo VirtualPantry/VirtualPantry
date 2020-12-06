@@ -64,26 +64,16 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.description = json["description"] as! String
                         food.okayFlag = json["okayFlag"] as? Int ?? 3
                         food.price = json["price"] as! Int
-                        food.quantity = json["quantity"] as! Int
-                        food.warningFlag = json["warningFlag"] as? Int ?? 1
-                        food.expirationDate = json["expireDate"] as? String ?? "Expiration Date: "
-                       // if !checkIfFood(fod: food) {
-                            PantryViewController.foodArray.append(food)
-                        //}
+                        food.quantity = json["quantity"] as? Int ?? 0
+                        food.warningFlag = json["warningFlag"] as? Int ?? 2
+                        food.expirationDate = json["expirationDate"] as? String ?? "12/06/2020"
+                        PantryViewController.foodArray.append(food)
                         self.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
                     }
                 }
             }
         })
-    }
-    func checkIfFood(fod: Food) -> Bool {
-        if PantryViewController.foodArray.contains(where: { (fod) -> Bool in
-            return true
-        }) {
-            
-        }
-        return false
     }
     
     // Number of cells
@@ -120,15 +110,15 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.okayFlag = food.okayFlag
         cell.emergencyFlag = food.emergencyFlag
         cell.warningFlag = food.warningFlag
-        cell.quantityLabel.text = "Quantity \(String(food.quantity))"
+        cell.quantityLabel.text = "Quantity: \(food.quantity)"
         cell.expirationDateLabel.text = "Expiration Date: \(food.expirationDate)"
+        
         
     
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
         cell.pantryItemPicture.layer.masksToBounds = true
         cell.pantryItemPicture.layer.shadowRadius = 15
-        
     
         cell.setColor()
         
