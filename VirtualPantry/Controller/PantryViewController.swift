@@ -50,28 +50,40 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let user = Auth.auth().currentUser
         let uid = user!.uid
         let docRef = db.collection("users").document(uid)
+        PantryViewController.foodArray = []
         docRef.getDocument(completion: { [self] (document, error) in
             if let document = document, document.exists{
-                let pantryItemUIDs = document.get("pantryItems") as! [String]
+                let pantryItemUIDs = document.get("pantryItems") as? [String] ?? []
                 for pantryItemUID in pantryItemUIDs{
                     let docItemRef = db.collection("pantryItems").document(pantryItemUID)
                     docItemRef.getDocument { (document, error) in
                         let json = document?.data() as! [String : Any?]
                         var food : Food = Food()
                         food.name = json["name"] as! String
-                        food.emergencyFlag = json["emergencyFlag"] as! Int
+                        food.emergencyFlag = json["emergencyFlag"] as? Int ?? 0
                         food.description = json["description"] as! String
-                        food.okayFlag = json["okayFlag"] as! Int
+                        food.okayFlag = json["okayFlag"] as? Int ?? 3
                         food.price = json["price"] as! Int
                         food.quantity = json["quantity"] as! Int
-                        food.warningFlag = json["warningFlag"] as! Int
-                        PantryViewController.foodArray.append(food)
+                        food.warningFlag = json["warningFlag"] as? Int ?? 1
+                        food.expirationDate = json["expireDate"] as? String ?? "Expiration Date: "
+                       // if !checkIfFood(fod: food) {
+                            PantryViewController.foodArray.append(food)
+                        //}
                         self.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
                     }
                 }
             }
         })
+    }
+    func checkIfFood(fod: Food) -> Bool {
+        if PantryViewController.foodArray.contains(where: { (fod) -> Bool in
+            return true
+        }) {
+            
+        }
+        return false
     }
     
     // Number of cells
@@ -108,13 +120,15 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.okayFlag = food.okayFlag
         cell.emergencyFlag = food.emergencyFlag
         cell.warningFlag = food.warningFlag
-    
+        cell.quantityLabel.text = "Quantity \(String(food.quantity))"
+        cell.expirationDateLabel.text = "Expiration Date: \(food.expirationDate)"
         
     
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
         cell.pantryItemPicture.layer.masksToBounds = true
         cell.pantryItemPicture.layer.shadowRadius = 15
+        
     
         cell.setColor()
         

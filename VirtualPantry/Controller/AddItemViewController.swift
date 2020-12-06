@@ -27,11 +27,39 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var quantity: UITextField!
     
+    private var datePicker: UIDatePicker?
+    @IBOutlet weak var expirationDateTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(AddItemViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        expirationDateTF.inputView = datePicker
+        
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func viewTapped(gesture: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        expirationDateTF.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+        
+        
     }
     
     
@@ -43,7 +71,8 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 emergencyFlag.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 okFlag.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
                 warningFlag.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-                quantity.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+                quantity.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                expirationDateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
                 return "Please fill in all fields"
             }
         
@@ -65,15 +94,15 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 ref = db.collection("pantryItems").addDocument(data:[
                                                                 "description": itemDescriptionTextField.text!,
                                                                 "name": itemNameTextField.text!,
-                                                    
-                                                                "price" : Int(itemPrice.text!)!,
+                                                                "expireDate": expirationDateTF.text!,
+                                                                "price" : Int(itemPrice.text!) ?? 0,
                                                                 "quantity": Int(quantity.text!)!,
-                                                                            "emergencyFlag": emergencyFlag.text!,
-                                                                            "warningFlag" : warningFlag.text!,
-                                                                            "okayFlag" : okFlag.text!])
+                                                                "emergencyFlag": Int(emergencyFlag.text!)!,
+                                                                "warningFlag" : Int(warningFlag.text!)!,
+                                                                "okayFlag" : Int(okFlag.text!)!])
                 name = ref!.documentID
                 PantryViewController.foodDoc.append(name!)
-                let quant = Int(quantity.text!)!
+                //let quant = Int(quantity.text!)!
                 //PantryViewController.quantities.append(quant)
                 addItems.append(name!)
                 db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
@@ -84,12 +113,20 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     
         @IBAction func backTapped(_ sender: Any) {
-            self.dismiss(animated: true, completion: nil)
-        }
-        @IBAction func addTapped(_ sender: Any) {
-            sendDataToFirebase(self)
             _ = navigationController?.popViewController(animated: true)
             NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+        }
+        @IBAction func addTapped(_ sender: Any) {
+            if self.validateFields() == nil {
+                sendDataToFirebase(self)
+                _ = navigationController?.popViewController(animated: true)
+                NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+            } else {
+                ProgressHUD.showError(self.validateFields())
+            }
+
+            
+            
         }
         
         @IBAction func cameraTapped(_ sender: Any) {
