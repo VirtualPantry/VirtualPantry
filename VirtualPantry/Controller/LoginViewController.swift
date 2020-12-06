@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
         errorLabel.alpha = 0
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()!.options.clientID
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
         if Auth.auth().currentUser != nil {
