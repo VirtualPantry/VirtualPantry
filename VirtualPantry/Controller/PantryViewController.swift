@@ -8,6 +8,9 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
+import Firebase
+
+
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,7 +20,9 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     let db = Firestore.firestore()
     static var foodDoc : [String] = []
     static var quantities : [Int] = []
-    var filteredData: [String]!
+    var filteredData: [Food]!
+    static var foodArray: [Food] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        filteredData = PantryViewController.foodDoc
+        filteredData = PantryViewController.foodArray
         NotificationCenter.default.addObserver(self, selector: #selector(loadData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
     }
@@ -47,51 +52,64 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let docRef = db.collection("users").document(uid)
         docRef.getDocument(completion: { [self] (document, error) in
             if let document = document, document.exists{
-                let temp = document.data()!["pantryItems"] ?? []
-                PantryViewController.foodDoc = temp as? [String] ?? []
-                print(PantryViewController.foodDoc)
-                filteredData = PantryViewController.foodDoc
-                collectionView.reloadData()
-            }
-            
-            else{
-                print(error)
+                let pantryItemUIDs = document.get("pantryItems") as! [String]
+                for pantryItemUID in pantryItemUIDs{
+                    let docItemRef = db.collection("pantryItems").document(pantryItemUID)
+                    docItemRef.getDocument { (document, error) in
+                        let json = document?.data() as! [String : Any?]
+                        var food : Food = Food()
+                        food.name = json["name"] as! String
+                        food.emergencyFlag = json["emergencyFlag"] as! Int
+                        food.description = json["description"] as! String
+                        food.okayFlag = json["okayFlag"] as! Int
+                        food.price = json["price"] as! Int
+                        food.quantity = json["quantity"] as! Int
+                        food.warningFlag = json["warningFlag"] as! Int
+                        PantryViewController.foodArray.append(food)
+                        self.filteredData = PantryViewController.foodArray
+                        collectionView.reloadData()
+                    }
+                }
             }
         })
     }
     
-
-    
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredData.count
+        return PantryViewController.foodArray.count
     }
     
-    func printInfo(_ value: Any) {
-        let t = type(of: value)
-        print("'\(value)' of type '\(t)'")
-    }
-    
+   
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
         
-        // TODO : Move this logic into the grocery cell or make another image view
-        let itemID = filteredData[indexPath.row]
-        let item = db.collection("pantryItems").document(itemID)
+//        // TODO : Move this logic into the grocery cell or make another image view
+//        let itemID = filteredData[indexPath.row]
+//        let item = db.collection("pantryItems").document(itemID)
+//
+//        item.getDocument { (document, error) in
+//            if let document = document {
+//                let property = document.get("name")
+//                let quantity = document.get("quantity") as! Int
+//                cell.quantityLabel.text = "Quantity: \(quantity)"
+//                cell.currentQuantity = quantity as Int
+//
+//                cell.nameLabel.text = (property as! String)
+//            } else {
+//                print("Document does not exist in cache")
+//            }
+//        }
         
-        item.getDocument { (document, error) in
-            if let document = document {
-                let property = document.get("name")
-                let quantity = document.get("quantity") as! Int
-                cell.quantityLabel.text = "Quantity: \(quantity)"
-                cell.currentQuantity = quantity as Int
-                
-                cell.nameLabel.text = (property as! String)
-            } else {
-                print("Document does not exist in cache")
-            }
-        }
+        let food = filteredData[indexPath.row]
+       
+        cell.nameLabel.text = food.name
+        cell.currentQuantity = food.quantity
+        cell.okayFlag = food.okayFlag
+        cell.emergencyFlag = food.emergencyFlag
+        cell.warningFlag = food.warningFlag
+    
+        
     
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
@@ -105,10 +123,10 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? PantryViewController.foodDoc : PantryViewController.foodDoc.filter { (item: String) -> Bool in
-                    // If dataItem matches the searchText, return true to include it
-                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
+//        filteredData = searchText.isEmpty ? PantryViewController.foodDoc : PantryViewController.foodDoc.filter { (item: String) -> Bool in
+//                    // If dataItem matches the searchText, return true to include it
+//                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+//        }
         
         collectionView.reloadData()
     }
@@ -123,5 +141,4 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //
     }
-
 }
