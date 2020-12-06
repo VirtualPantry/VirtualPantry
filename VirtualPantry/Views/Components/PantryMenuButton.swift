@@ -65,7 +65,7 @@ class PantryMenuButton: UIButton {
         print("New Photo from Camera")
     }
     
-        
+    
         
     let menuActions = [addItem,exportedSelectedItems, exportAll,removeAll]
       

@@ -47,10 +47,10 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 return "Please fill in all fields"
             }
         
-            let price = Double(self.itemPrice.text!)!
-            let quant = Double(self.quantity.text!)!
-            let total = price * quant
-            self.totalLabel.text = "$\(total)"
+//            let price = Double(self.itemPrice.text!)!
+//            let quant = Double(self.quantity.text!)!
+//            let total = price * quant
+//            self.totalLabel.text = "$\(total)"
             return nil
         }
     
@@ -66,30 +66,30 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                                 "description": itemDescriptionTextField.text!,
                                                                 "name": itemNameTextField.text!,
                                                     
-                                                                "price" : itemPrice.text!,
-                                                                "quantity": quantity.text!,
+                                                                "price" : Int(itemPrice.text!)!,
+                                                                "quantity": Int(quantity.text!)!,
                                                                             "emergencyFlag": emergencyFlag.text!,
                                                                             "warningFlag" : warningFlag.text!,
                                                                             "okayFlag" : okFlag.text!])
                 name = ref!.documentID
-                PantryViewController.dummyFood.append(name!)
+                PantryViewController.foodDoc.append(name!)
                 let quant = Int(quantity.text!)!
-                PantryViewController.quantities.append(quant)
+                //PantryViewController.quantities.append(quant)
                 addItems.append(name!)
                 db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
                 print(addItems)
-
-
             } else {
                 ProgressHUD.showError(error)
             }
         }
+    
         @IBAction func backTapped(_ sender: Any) {
             self.dismiss(animated: true, completion: nil)
         }
         @IBAction func addTapped(_ sender: Any) {
             sendDataToFirebase(self)
-            //self.dismiss(animated: true, completion: nil)
+            _ = navigationController?.popViewController(animated: true)
+            NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
         }
         
         @IBAction func cameraTapped(_ sender: Any) {

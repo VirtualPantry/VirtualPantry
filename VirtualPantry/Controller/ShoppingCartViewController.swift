@@ -9,13 +9,13 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate{
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuButton: GroceryListMenuButton!
     
     static var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
     var filteredData: [String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
