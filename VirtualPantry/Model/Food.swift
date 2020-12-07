@@ -17,4 +17,5 @@ public class Food{
     var warningFlag : Int = 0;
     var okayFlag : Int = 0;
     var expirationDate: String = ""
+    var uid: String = ""
 }

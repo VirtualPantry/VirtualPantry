@@ -16,7 +16,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    var currentRow: Int = 0
     let db = Firestore.firestore()
     static var foodDoc : [String] = []
     static var quantities : [Int] = []
@@ -67,6 +67,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.quantity = json["quantity"] as? Int ?? 0
                         food.warningFlag = json["warningFlag"] as? Int ?? 2
                         food.expirationDate = json["expirationDate"] as? String ?? "12/06/2020"
+                        food.uid = uid
                         PantryViewController.foodArray.append(food)
                         self.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
@@ -121,7 +122,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.pantryItemPicture.layer.shadowRadius = 15
     
         cell.setColor()
-        
         return cell
     }
     
@@ -142,7 +142,23 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         self.performSegue(withIdentifier: "goAddItem", sender: self)
     }
     
+    func cellTapped() {
+        self.performSegue(withIdentifier: "goEditItem", sender: currentRow)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //
+        
+        if segue.identifier == "goEditItem" {
+            let cell = sender as! PantryItemCell
+            if let indexPath = collectionView.indexPath(for: cell) {
+                let EditViewController = segue.destination as! EditItemViewController
+                EditViewController.indexPath = indexPath.row
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) {
+        currentRow = indexPath.row
     }
 }
