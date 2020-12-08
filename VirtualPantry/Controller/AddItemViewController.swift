@@ -102,7 +102,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                                             "warningFlag" : warningFlag.text!,
                                                                             "okayFlag" : okFlag.text!])
                 name = ref!.documentID
-                PantryViewController.foodDoc.append(name!)
+                //PantryViewController.foodDoc.append(name!)
                // let quant = Int(quantity.text!)!
                 //PantryViewController.quantities.append(quant)
                 addItems.append(name!)
@@ -113,26 +113,25 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     
-    @IBAction func backTapped(_ sender: Any) {
+     @IBAction func backTapped(_ sender: Any) {
                 _ = navigationController?.popViewController(animated: true)
                 NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+        dismiss(animated: true, completion: nil)
             }
             @IBAction func addTapped(_ sender: Any) {
                 if self.validateFields() == nil {
                     sendDataToFirebase(self)
                     _ = navigationController?.popViewController(animated: true)
                     NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+                    dismiss(animated: true, completion: nil)
                 } else {
                     ProgressHUD.showError(self.validateFields())
                 }
-
-                
-                
-            }
+        }
         
         @IBAction func cameraTapped(_ sender: Any) {
             let picker = UIImagePickerController()
-            picker.sourceType = .camera
+            
             picker.delegate = self
             picker.allowsEditing = true
             
@@ -150,11 +149,25 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let scaledImage = image.af.imageScaled(to: size)
             
             itemPicture.image = scaledImage
+            
+            dismiss(animated: true, completion: nil)
+            
             let db = Firestore.firestore()
             let user = Auth.auth().currentUser
             let uid = (user?.uid)!
-            db.collection("items").document(itemNameTextField.text! + uid).updateData([
-                                                                                        "picture": itemPicture.image!])
+//           db.collection("items").document(itemNameTextField.text! + uid).updateData([
+//                                                                                        "picture": itemPicture.image!])
         }
-
+    
+    
+    
+    
+    
+    @IBAction func calculateTotal(_ sender: Any) {
+        let price = Double(itemPrice.text!) ?? 0
+        let amount = Double(quantity.text!) ?? 0
+        let total = price * amount ?? 0
+        
+        totalLabel.text = String(format: "$%.2f" , total)
+    }
 }

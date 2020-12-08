@@ -48,7 +48,7 @@ class PantryMenuButton: UIButton {
         title: "Add Item Manually",
         image: UIImage(systemName: "plus")
       ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("addPantryItem"), object: nil)
       }
         
       let exportAll = UIAction(
@@ -62,7 +62,7 @@ class PantryMenuButton: UIButton {
         title: "Remove all Items",
         image: UIImage(systemName: "delete.left"), attributes: UIMenuElement.Attributes.destructive
         ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("removePantryItem"), object: nil)
     }
     
     

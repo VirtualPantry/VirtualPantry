@@ -106,8 +106,6 @@ class PantryItemCell: UICollectionViewCell {
             self.setColor()
         }
     }
-    
-    
 }
 
 extension UIColor {

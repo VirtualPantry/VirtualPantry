@@ -16,13 +16,12 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
-    var currentRow: Int = 0
     let db = Firestore.firestore()
-    static var foodDoc : [String] = []
-    static var quantities : [Int] = []
     var filteredData: [Food]!
     static var foodArray: [Food] = []
-    
+    //static var foodDoc : [String]!
+    @IBOutlet var priceLabel: UILabel!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +42,8 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         filteredData = PantryViewController.foodArray
         NotificationCenter.default.addObserver(self, selector: #selector(loadData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeItems(notification:)), name: NSNotification.Name(rawValue: "removePantryItem"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goAddItem(notification:)), name: NSNotification.Name(rawValue: "addPantryItem"), object: nil)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
     }
     
@@ -67,7 +68,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.quantity = json["quantity"] as? Int ?? 0
                         food.warningFlag = json["warningFlag"] as? Int ?? 2
                         food.expirationDate = json["expirationDate"] as? String ?? "12/06/2020"
-                        food.uid = uid
+                        food.docItemRef = docItemRef as? String ?? ""
                         PantryViewController.foodArray.append(food)
                         self.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
@@ -79,30 +80,13 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PantryViewController.foodArray.count
+        return filteredData.count
     }
     
    
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
-        
-//        // TODO : Move this logic into the grocery cell or make another image view
-//        let itemID = filteredData[indexPath.row]
-//        let item = db.collection("pantryItems").document(itemID)
-//
-//        item.getDocument { (document, error) in
-//            if let document = document {
-//                let property = document.get("name")
-//                let quantity = document.get("quantity") as! Int
-//                cell.quantityLabel.text = "Quantity: \(quantity)"
-//                cell.currentQuantity = quantity as Int
-//
-//                cell.nameLabel.text = (property as! String)
-//            } else {
-//                print("Document does not exist in cache")
-//            }
-//        }
         
         let food = filteredData[indexPath.row]
        
@@ -113,52 +97,45 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.warningFlag = food.warningFlag
         cell.quantityLabel.text = "Quantity: \(food.quantity)"
         cell.expirationDateLabel.text = "Expiration Date: \(food.expirationDate)"
-        
-        
-    
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
         cell.pantryItemPicture.layer.masksToBounds = true
         cell.pantryItemPicture.layer.shadowRadius = 15
-    
         cell.setColor()
+        
         return cell
     }
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        filteredData = searchText.isEmpty ? PantryViewController.foodDoc : PantryViewController.foodDoc.filter { (item: String) -> Bool in
-//                    // If dataItem matches the searchText, return true to include it
-//                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-//        }
+        filteredData = searchText.isEmpty ? PantryViewController.foodArray : PantryViewController.foodArray.filter { (item: Food) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
         
         collectionView.reloadData()
     }
     
-    
-    
-    
-    func performSegue(_ sender: Any) {
+    @objc func goAddItem(notification: NSNotification){
         self.performSegue(withIdentifier: "goAddItem", sender: self)
     }
     
-    func cellTapped() {
-        self.performSegue(withIdentifier: "goEditItem", sender: currentRow)
+    @objc func removeItems(notification: NSNotification){
+        PantryViewController.foodArray = []
+        filteredData = PantryViewController.foodArray
+        collectionView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goEditItem" {
             let cell = sender as! PantryItemCell
             if let indexPath = collectionView.indexPath(for: cell) {
                 let EditViewController = segue.destination as! EditItemViewController
-                EditViewController.indexPath = indexPath.row
+                let food = PantryViewController.foodArray[indexPath.row]
+                EditViewController.food = food
             }
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                                 didSelectItemAt indexPath: IndexPath) {
-        currentRow = indexPath.row
-    }
+    
 }
