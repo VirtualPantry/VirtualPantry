@@ -34,10 +34,10 @@ The following iOS application called Virtual Pantry will automate an shopping li
 * [x] Add item manually to the grocery list
 * Send item from grocery to pantry 
 * Send item from pantry to grocery 
-* Remove item from grocery list
-* Remove item from pantry 
-* Search for items in pantry
-* Search for items in grocery 
+* [x] Remove item from grocery list
+* [x] Remove item from pantry 
+* [x] Search for items in pantry
+* [x] Search for items in grocery 
 * User can view history of items 
 * User can report bugs 
 
