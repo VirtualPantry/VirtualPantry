@@ -17,7 +17,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
     let db = Firestore.firestore()
-    static var filteredData: [Food]!
+    static var filteredData: [Food] = []
     static var foodArray: [Food] = []
     //static var foodDoc : [String]!
     @IBOutlet var priceLabel: UILabel!
@@ -52,6 +52,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let uid = user!.uid
         let docRef = db.collection("users").document(uid)
         PantryViewController.foodArray = []
+        PantryViewController.filteredData = []
         docRef.getDocument(completion: { [self] (document, error) in
             if let document = document, document.exists{
                 let pantryItemUIDs = document.get("pantryItems") as? [String] ?? []
@@ -78,7 +79,12 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         PantryViewController.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
                     }
+                    
                 }
+
+                print("collection view count : \(PantryViewController.foodArray.count)")
+                print("filterData count : \(PantryViewController.filteredData.count)")
+                collectionView.reloadData()
             }
         })
     }
@@ -132,10 +138,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         PantryViewController.filteredData = PantryViewController.foodArray
         collectionView.reloadData()
     }
-    
-    
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEditItem" {
