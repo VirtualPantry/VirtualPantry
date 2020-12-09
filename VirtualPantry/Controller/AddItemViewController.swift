@@ -49,7 +49,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
            
 
            // Do any additional setup after loading the view.
-           NotificationCenter.default.addObserver(self, selector: #selector(sendPic(notification:)), name: NSNotification.Name(rawValue: "sendAddedItemPic"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sendPic(notification:)), name: NSNotification.Name(rawValue: "sendAddedItemPic"), object: nil)
        }
        
        @objc func viewTapped(gesture: UITapGestureRecognizer) {
@@ -95,12 +95,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let error = validateFields()
             if error == nil {
                 var ref: DocumentReference? = nil
-                NotificationCenter.default.post(name: Notification.Name("sendAddedItemPic"), object: nil)
+                
                 ref = db.collection("pantryItems").addDocument(data:[
                                                                 "description": itemDescriptionTextField.text!,
                                                                 "name": itemNameTextField.text!,
                                                                 "expiration": expirationDateTF.text!,
-                                                                "picPath" : picPath,
                                                                 "price" : Double(itemPrice.text!)!,
                                                                 "quantity": Int(quantity.text!)!,
                                                                             "emergencyFlag": Int(emergencyFlag.text!)!,
@@ -110,8 +109,29 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                 //PantryViewController.foodDoc.append(name!)
                // let quant = Int(quantity.text!)!
                 //PantryViewController.quantities.append(quant)
+                
+                picPath = "\(uid as! String)/\(name as! String)"
+                print("picPath")
+                print(picPath)
+                NotificationCenter.default.post(name: Notification.Name("sendAddedItemPic"), object: nil)
+                
+                
+                db.collection("pantryItems").document(ref!.documentID).updateData(["picPath" : picPath])
+//                db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)]){
+//                    _ in
+//                    _ = navigationController?.popViewController(animated: true)
+//                    NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+//                    dismiss(animated: true, completion: nil)
+//                }
+                
                 addItems.append(name!)
-                db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)])
+                db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayUnion(addItems)]){ error in
+                    _ = self.navigationController?.popViewController(animated: true)
+                    NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                
                 print(addItems)
             } else {
                 ProgressHUD.showError(error)
@@ -126,9 +146,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             @IBAction func addTapped(_ sender: Any) {
                 if self.validateFields() == nil {
                     sendDataToFirebase(self)
-                    _ = navigationController?.popViewController(animated: true)
-                    NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
-                    dismiss(animated: true, completion: nil)
                 } else {
                     ProgressHUD.showError(self.validateFields())
                 }
@@ -190,7 +207,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         let storage = Storage.storage()
         let storageRef = storage.reference()
         
-        picPath = "\(uid)/\(docRefItem)"
         let imageRef = storageRef.child(picPath as! String)
         
         // upload the image to firestore
