@@ -19,6 +19,8 @@ public class Food : Equatable{
     var okayFlag : Int = 0;
     var expirationDate: String = ""
     var docItemRef: String = ""
+    var imageRef : String = ""
+    var picPath : String = ""
     
     public static func == (lhs: Food, rhs: Food) -> Bool {
         if(lhs.docItemRef == rhs.docItemRef){

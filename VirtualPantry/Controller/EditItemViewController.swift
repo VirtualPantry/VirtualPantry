@@ -27,6 +27,8 @@ class EditItemViewController: UIViewController {
     @IBOutlet var date: UITextField!
     @IBOutlet var totalLabel: UILabel!
     private var datePicker: UIDatePicker?
+    @IBOutlet weak var itemPic: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,9 +125,10 @@ class EditItemViewController: UIViewController {
                                                                                 "expiration": date.text!,
                                                                                 "price" : Int(price.text!)!,
                                                                                 "quantity": Int(quantityFlag.text!)!,
-                                                                                            "emergencyFlag": emergencyFlag.text!,
-                                                                                            "warningFlag" : warningFlag.text!,
-                                                                            "okayFlag" : okayFlag.text!])
+                                                                                            "emergencyFlag": Int(emergencyFlag.text!),
+                                                                                            "warningFlag" : Int(warningFlag.text!),
+                                                                                "okayFlag" : Int(okayFlag.text!)]
+        )
         
         _ = navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)

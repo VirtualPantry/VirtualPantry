@@ -10,42 +10,46 @@ import ProgressHUD
 import FirebaseFirestore
 import FirebaseAuth
 import AlamofireImage
+import Firebase
+import FirebaseStorage
+
 class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var itemPicture: UIImageView!
-    
     @IBOutlet weak var itemNameTextField: UITextField!
-    
     @IBOutlet weak var itemDescriptionTextField: UITextField!
     @IBOutlet weak var itemPrice: UITextField!
     @IBOutlet weak var emergencyFlag: UITextField!
     @IBOutlet weak var warningFlag: UITextField!
-     var name: String?
-    
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var okFlag: UITextField!
-    
     @IBOutlet weak var quantity: UITextField!
-    
     @IBOutlet weak var expirationDateTF: UITextField!
     private var datePicker: UIDatePicker?
-   
+    var name: String?
+    var docRefItem: String = ""
+    var image : UIImage?
+    var imageURL : URL?
+    var picPath : String?
+
     override func viewDidLoad() {
            super.viewDidLoad()
            
            datePicker = UIDatePicker()
            datePicker?.datePickerMode = .date
            datePicker?.addTarget(self, action: #selector(AddItemViewController.dateChanged(datePicker:)), for: .valueChanged)
-           
+           let user = Auth.auth().currentUser
+           let uid = (user?.uid)!
            
            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gesture:)))
            view.addGestureRecognizer(tapGesture)
            
            expirationDateTF.inputView = datePicker
-           
+            
            
 
            // Do any additional setup after loading the view.
+           NotificationCenter.default.addObserver(self, selector: #selector(sendPic(notification:)), name: NSNotification.Name(rawValue: "sendAddedItemPic"), object: nil)
        }
        
        @objc func viewTapped(gesture: UITapGestureRecognizer) {
@@ -91,11 +95,12 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
             let error = validateFields()
             if error == nil {
                 var ref: DocumentReference? = nil
+                NotificationCenter.default.post(name: Notification.Name("sendAddedItemPic"), object: nil)
                 ref = db.collection("pantryItems").addDocument(data:[
                                                                 "description": itemDescriptionTextField.text!,
                                                                 "name": itemNameTextField.text!,
                                                                 "expiration": expirationDateTF.text!,
-                                                    
+                                                                "picPath" : picPath,
                                                                 "price" : Double(itemPrice.text!)!,
                                                                 "quantity": Int(quantity.text!)!,
                                                                             "emergencyFlag": Int(emergencyFlag.text!)!,
@@ -144,22 +149,76 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
      
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            let image = info[.editedImage] as! UIImage
+            print("hello")
+            image = info[.originalImage] as! UIImage
             let size = CGSize(width: 250, height: 250)
-            let scaledImage = image.af.imageScaled(to: size)
-            
+            let scaledImage = image?.af.imageScaled(to: size)
             itemPicture.image = scaledImage
-            
             dismiss(animated: true, completion: nil)
+           
             
-            let db = Firestore.firestore()
-            let user = Auth.auth().currentUser
-            let uid = (user?.uid)!
-//           db.collection("items").document(itemNameTextField.text! + uid).updateData([
-//                                                                                        "picture": itemPicture.image!])
+            if (picker.sourceType == UIImagePickerController.SourceType.camera) {
+                    let imgName = UUID().uuidString
+                    let documentDirectory = NSTemporaryDirectory()
+                    let localPath = documentDirectory.appending(imgName)
+                    let data = image!.jpegData(compressionQuality: 0.3)! as NSData
+                    data.write(toFile: localPath, atomically: true)
+                    imageURL = URL.init(fileURLWithPath: localPath)
+            }
+            
+            else{
+                let imgName = UUID().uuidString
+                let documentDirectory = NSTemporaryDirectory()
+                let localPath = documentDirectory.appending(imgName)
+                let data = image!.jpegData(compressionQuality: 0.3)! as NSData
+                data.write(toFile: localPath, atomically: true)
+                imageURL = URL.init(fileURLWithPath: localPath)
+            }
         }
     
     
+    @objc func sendPic(notification : Notification) {
+        // Gets user
+        let db = Firestore.firestore()
+        let user = Auth.auth().currentUser
+        let uid = (user?.uid)!
+        
+        // Local URL
+        let localFile = imageURL as! URL
+        
+        // create reference in firestore
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        picPath = "\(uid)/\(docRefItem)"
+        let imageRef = storageRef.child(picPath as! String)
+        
+        // upload the image to firestore
+        let uploadTask = imageRef.putFile(from: localFile, metadata: nil) { metadata, error in
+          guard let metadata = metadata else {
+            // Uh-oh, an error occurred!
+            return
+          }
+          // Metadata contains file metadata such as size, content-type.
+          let size = metadata.size
+          // You can also access to download URL after upload.
+            storageRef.downloadURL { (url, error) in
+            guard let downloadURL = url else {
+              // Uh-oh, an error occurred!
+              return
+            }
+          }
+        }
+    }
+    
+    
+    /*
+     
+     var name: String?
+     var docRefItem: String = ""
+     var image : UIImage?
+     var imageURL : URL?
+     */
     
     
     

@@ -9,7 +9,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 import Firebase
-
+import FirebaseStorage
 
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
@@ -17,6 +17,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
     let db = Firestore.firestore()
+    
     static var filteredData: [Food] = []
     static var foodArray: [Food] = []
     //static var foodDoc : [String]!
@@ -41,13 +42,13 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         searchTextField?.backgroundColor = UIColor.white
         
         PantryViewController.filteredData = PantryViewController.foodArray
-        NotificationCenter.default.addObserver(self, selector: #selector(loadData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadPantryData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removeItems(notification:)), name: NSNotification.Name(rawValue: "removePantryItem"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goAddItem(notification:)), name: NSNotification.Name(rawValue: "addPantryItem"), object: nil)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
     }
     
-    @objc func loadData(notification: NSNotification) {
+    @objc func loadPantryData(notification: NSNotification) {
         let user = Auth.auth().currentUser
         let uid = user!.uid
         let docRef = db.collection("users").document(uid)
@@ -73,6 +74,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.price = json["price"] as! Int
                         food.quantity = json["quantity"] as! Int
                         food.warningFlag = json["warningFlag"] as! Int
+                        food.picPath = json["picPath"] as! String
                         //food.expirationDate = json["expirationDate"] as String
                         food.docItemRef = docItemRef.documentID as! String
                         PantryViewController.foodArray.append(food)
@@ -100,9 +102,8 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
-        
         let food = PantryViewController.filteredData[indexPath.row]
-       
+        let dispatch = DispatchGroup()
         cell.nameLabel.text = food.name
         cell.currentQuantity = food.quantity
         cell.okayFlag = food.okayFlag
@@ -110,6 +111,21 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         cell.warningFlag = food.warningFlag
         cell.quantityLabel.text = "Quantity: \(food.quantity)"
         cell.expirationDateLabel.text = "Expiration Date: \(food.expirationDate)"
+        
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        let picRef = storageRef.child(food.picPath)
+        picRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+          } else {
+            // Data for "images/island.jpg" is returned
+            cell.pantryItemPicture.image = UIImage(data: data!)
+          }
+        }
+        
         cell.pantryItemPicture.layer.cornerRadius = 15
         cell.pantryItemPicture.clipsToBounds = true
         cell.pantryItemPicture.layer.masksToBounds = true
@@ -146,6 +162,18 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 let EditViewController = segue.destination as! EditItemViewController
                 let food = PantryViewController.foodArray[indexPath.row]
                 EditViewController.food = food
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let picRef = storageRef.child(food.picPath)
+                picRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                  } else {
+                    // Data for "images/island.jpg" is returned
+                    EditViewController.itemPic.image = UIImage(data: data!)
+                  }
+                }
             }
         }
     }
