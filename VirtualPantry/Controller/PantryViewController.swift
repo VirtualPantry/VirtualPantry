@@ -75,7 +75,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.quantity = json["quantity"] as! Int
                         food.warningFlag = json["warningFlag"] as! Int
                         food.picPath = json["picPath"] as! String
-                        //food.expirationDate = json["expirationDate"] as String
+                        food.expirationDate = json["expiration"] as! String
                         food.docItemRef = docItemRef.documentID as! String
                         PantryViewController.foodArray.append(food)
                         PantryViewController.filteredData = PantryViewController.foodArray
