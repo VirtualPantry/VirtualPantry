@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import Firebase
 import FirebaseStorage
-
+import ProgressHUD
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -150,6 +150,17 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     @objc func removeItems(notification: NSNotification){
+        let user = Auth.auth().currentUser
+        let uid = (user?.uid)!
+        db.collection("users").document(uid).updateData([
+            "pantryItems": FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                ProgressHUD.showSuccess("All items successfully deleted!")
+            }
+        }
         PantryViewController.foodArray = []
         PantryViewController.filteredData = PantryViewController.foodArray
         collectionView.reloadData()
