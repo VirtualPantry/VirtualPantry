@@ -17,7 +17,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var menuButton: PantryMenuButton!
     @IBOutlet weak var searchBar: UISearchBar!
     let db = Firestore.firestore()
-    var filteredData: [Food]!
+    static var filteredData: [Food]!
     static var foodArray: [Food] = []
     //static var foodDoc : [String]!
     @IBOutlet var priceLabel: UILabel!
@@ -40,7 +40,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        filteredData = PantryViewController.foodArray
+        PantryViewController.filteredData = PantryViewController.foodArray
         NotificationCenter.default.addObserver(self, selector: #selector(loadData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removeItems(notification:)), name: NSNotification.Name(rawValue: "removePantryItem"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goAddItem(notification:)), name: NSNotification.Name(rawValue: "addPantryItem"), object: nil)
@@ -58,19 +58,24 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 for pantryItemUID in pantryItemUIDs{
                     let docItemRef = db.collection("pantryItems").document(pantryItemUID)
                     docItemRef.getDocument { (document, error) in
-                        let json = document?.data() as! [String : Any?]
+                        let json = document?.data() as? [String : Any?]  ?? [:]
                         var food : Food = Food()
+                        
+                        if(json.isEmpty){
+                            return
+                        }
+                        
                         food.name = json["name"] as! String
-                        food.emergencyFlag = json["emergencyFlag"] as? Int ?? 0
+                        food.emergencyFlag = json["emergencyFlag"] as! Int
                         food.description = json["description"] as! String
-                        food.okayFlag = json["okayFlag"] as? Int ?? 3
+                        food.okayFlag = json["okayFlag"] as! Int
                         food.price = json["price"] as! Int
-                        food.quantity = json["quantity"] as? Int ?? 0
-                        food.warningFlag = json["warningFlag"] as? Int ?? 2
-                        food.expirationDate = json["expirationDate"] as? String ?? "12/06/2020"
-                        food.docItemRef = docItemRef as? String ?? ""
+                        food.quantity = json["quantity"] as! Int
+                        food.warningFlag = json["warningFlag"] as! Int
+                        //food.expirationDate = json["expirationDate"] as String
+                        food.docItemRef = docItemRef.documentID as! String
                         PantryViewController.foodArray.append(food)
-                        self.filteredData = PantryViewController.foodArray
+                        PantryViewController.filteredData = PantryViewController.foodArray
                         collectionView.reloadData()
                     }
                 }
@@ -78,9 +83,11 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         })
     }
     
+
+    
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredData.count
+        return PantryViewController.filteredData.count
     }
     
    
@@ -88,7 +95,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
         
-        let food = filteredData[indexPath.row]
+        let food = PantryViewController.filteredData[indexPath.row]
        
         cell.nameLabel.text = food.name
         cell.currentQuantity = food.quantity
@@ -108,7 +115,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? PantryViewController.foodArray : PantryViewController.foodArray.filter { (item: Food) -> Bool in
+        PantryViewController.filteredData = searchText.isEmpty ? PantryViewController.foodArray : PantryViewController.foodArray.filter { (item: Food) -> Bool in
             // If dataItem matches the searchText, return true to include it
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
@@ -122,9 +129,13 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     @objc func removeItems(notification: NSNotification){
         PantryViewController.foodArray = []
-        filteredData = PantryViewController.foodArray
+        PantryViewController.filteredData = PantryViewController.foodArray
         collectionView.reloadData()
     }
+    
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEditItem" {

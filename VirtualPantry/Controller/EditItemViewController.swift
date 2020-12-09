@@ -84,21 +84,43 @@ class EditItemViewController: UIViewController {
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let uid = user?.uid
         db.collection("pantryItems").document(food!.docItemRef).delete() { err in
             if let err = err {
                 print("Error removing document: \(err)")
-            } else {
-                ProgressHUD.show("Successfully deleted \(self.food?.name)")
+            }
+            
+            else {
+                ProgressHUD.showSuccess("Successfully deleted \(self.food?.name as! String)")
                 print("Document successfully removed!")
+                PantryViewController.foodArray.removeAll {$0 == self.food}
+                print("count here is :\(PantryViewController.foodArray.count)")
+                let docRef = self.db.collection("users").document(uid!)
+                docRef.getDocument { [self] (document, error) in
+                    if let document = document {
+                        var arr = document.get("pantryItems") as! [String]
+                        arr.removeAll { $0 == food?.docItemRef }
+                        db.collection("users").document(uid!).updateData(["pantryItems" : arr])
+                    }
+                }
             }
         }
+        
+        dismiss(animated: true) {
+            NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
+        }
     }
+    
+    
+    
     @IBAction func updateTapped(_ sender: Any) {
+        print("here")
+        print(food!.docItemRef)
         db.collection("pantryItems").document(food!.docItemRef).updateData([
                                                                                 "description": descriptionText.text!,
                                                                                 "name": name.text!,
                                                                                 "expiration": date.text!,
-                                                                    
                                                                                 "price" : Int(price.text!)!,
                                                                                 "quantity": Int(quantityFlag.text!)!,
                                                                                             "emergencyFlag": emergencyFlag.text!,
@@ -108,7 +130,6 @@ class EditItemViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
         dismiss(animated: true, completion: nil)
-                                                        
     }
 }
     

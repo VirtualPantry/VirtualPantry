@@ -96,11 +96,11 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
                                                                 "name": itemNameTextField.text!,
                                                                 "expiration": expirationDateTF.text!,
                                                     
-                                                                "price" : Int(itemPrice.text!)!,
+                                                                "price" : Double(itemPrice.text!)!,
                                                                 "quantity": Int(quantity.text!)!,
-                                                                            "emergencyFlag": emergencyFlag.text!,
-                                                                            "warningFlag" : warningFlag.text!,
-                                                                            "okayFlag" : okFlag.text!])
+                                                                            "emergencyFlag": Int(emergencyFlag.text!)!,
+                                                                            "warningFlag" : Int(warningFlag.text!)!,
+                                                                            "okayFlag" : Int(okFlag.text!)!])
                 name = ref!.documentID
                 //PantryViewController.foodDoc.append(name!)
                // let quant = Int(quantity.text!)!

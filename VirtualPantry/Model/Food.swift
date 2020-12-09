@@ -8,7 +8,8 @@
 import Foundation
 import UIKit
 
-public class Food{
+public class Food : Equatable{
+   
     var name: String = ""
     var description: String  = ""
     var price : Int = 0
@@ -18,4 +19,12 @@ public class Food{
     var okayFlag : Int = 0;
     var expirationDate: String = ""
     var docItemRef: String = ""
+    
+    public static func == (lhs: Food, rhs: Food) -> Bool {
+        if(lhs.docItemRef == rhs.docItemRef){
+            return true
+        }
+        
+        return false
+    }
 }
