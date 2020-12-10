@@ -49,7 +49,7 @@ class GroceryListMenuButton: UIButton {
         title: "Add Item Manually",
         image: UIImage(systemName: "plus")
       ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("addGroceryItem"), object: nil)
       }
         
         
@@ -64,7 +64,7 @@ class GroceryListMenuButton: UIButton {
         title: "Remove all Items",
         image: UIImage(systemName: "delete.left"), attributes: UIMenuElement.Attributes.destructive
         ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("removeGroceryItem"), object: nil)
     }
         
         

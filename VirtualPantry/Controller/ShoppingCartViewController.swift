@@ -131,6 +131,19 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         cell.quantityLabel.text = "Quantity: \(food.quantity)"
         
         
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        let picRef = storageRef.child(food.picPath)
+        picRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+          } else {
+            // Data for "images/island.jpg" is returned
+            cell.groceryItemPicture.image = UIImage(data: data!)
+          }
+        }
+        
         
         cell.groceryItemPicture.layer.cornerRadius = 15
         cell.groceryItemPicture.clipsToBounds = true
@@ -149,6 +162,29 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         
         collectionView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEditGroceryItem" {
+            let cell = sender as! GroceryItemCell
+            if let indexPath = collectionView.indexPath(for: cell) {
+                let EditViewController = segue.destination as! CartEditViewController
+                let food = ShoppingCartViewController.foodArray[indexPath.row]
+                EditViewController.food = food
+                
+                let storage = Storage.storage()
+                let storageRef = storage.reference()
+                let picRef = storageRef.child(food.picPath)
+                picRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+                  if let error = error {
+                    // Uh-oh, an error occurred!
+                  } else {
+                    // Data for "images/island.jpg" is returned
+                    EditViewController.itemPic.image = UIImage(data: data!)
+                  }
+                }
+            }
+        }
+    }
 }
 
 extension UIImageView {
@@ -163,6 +199,9 @@ extension UIImageView {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadious
     }
+    
+    
+    
 }
 
 

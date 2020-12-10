@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		183AF0942579C62500E4304E /* EditItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF0932579C62500E4304E /* EditItemViewController.swift */; };
 		1852F5F82579A65D00DD6605 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1852F5F72579A65D00DD6605 /* AddItemViewController.swift */; };
+		1897DCB22581C886000F0849 /* CartAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897DCB12581C886000F0849 /* CartAddViewController.swift */; };
+		1897DCB72581C8B4000F0849 /* CartEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1897DCB62581C8B4000F0849 /* CartEditViewController.swift */; };
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
 		57397BAD383EA3BE05B19FA9 /* Pods_VirtualPantry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */; };
@@ -71,6 +73,8 @@
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
 		183AF0932579C62500E4304E /* EditItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewController.swift; sourceTree = "<group>"; };
 		1852F5F72579A65D00DD6605 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		1897DCB12581C886000F0849 /* CartAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAddViewController.swift; sourceTree = "<group>"; };
+		1897DCB62581C8B4000F0849 /* CartEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartEditViewController.swift; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47F7FC34A7B3A7B2A8209E18 /* Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				AF79A37E25762897006D75A6 /* CustomNavigationController.swift */,
 				1852F5F72579A65D00DD6605 /* AddItemViewController.swift */,
 				183AF0932579C62500E4304E /* EditItemViewController.swift */,
+				1897DCB12581C886000F0849 /* CartAddViewController.swift */,
+				1897DCB62581C8B4000F0849 /* CartEditViewController.swift */,
 			);
 			name = Controller;
 			path = VirtualPantry/Controller;
@@ -601,6 +607,7 @@
 				AF79A2AF257623C3006D75A6 /* resetButton.swift in Sources */,
 				AF79A2AD257623C3006D75A6 /* GroceryCell.swift in Sources */,
 				AF79A38425762897006D75A6 /* LoginViewController.swift in Sources */,
+				1897DCB22581C886000F0849 /* CartAddViewController.swift in Sources */,
 				AF79A2AE257623C3006D75A6 /* PantryMenuButton.swift in Sources */,
 				AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */,
 				AF79A2AA257623C3006D75A6 /* GroceryItemCell.swift in Sources */,
@@ -613,6 +620,7 @@
 				AF79A2AB257623C3006D75A6 /* BackButton.swift in Sources */,
 				AF3001B2257CD3A90018182A /* Food.swift in Sources */,
 				AF79A2A9257623C3006D75A6 /* SignUpButton.swift in Sources */,
+				1897DCB72581C8B4000F0849 /* CartEditViewController.swift in Sources */,
 				1852F5F82579A65D00DD6605 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
