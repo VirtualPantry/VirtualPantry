@@ -15,6 +15,11 @@ class GroceryItemCell: UICollectionViewCell {
     @IBOutlet weak var groceryItemPicture: UIImageView!
     @IBOutlet weak var switcher: UISwitch!
     
+    var emergencyFlag : Int = 1
+    var warningFlag : Int = 2
+    var okayFlag : Int = 3
+    var currentQuantity : Int?
+    
     required override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

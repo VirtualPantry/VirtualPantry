@@ -20,8 +20,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     static var filteredData: [Food] = []
     static var foodArray: [Food] = []
-    //static var foodDoc : [String]!
-    @IBOutlet var priceLabel: UILabel!
+
 
     
     override func viewDidLoad() {
@@ -103,7 +102,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
         let food = PantryViewController.filteredData[indexPath.row]
-        let dispatch = DispatchGroup()
         cell.nameLabel.text = food.name
         cell.currentQuantity = food.quantity
         cell.okayFlag = food.okayFlag

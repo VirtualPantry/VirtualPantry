@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseAuth
+import Firebase
+import FirebaseStorage
+import ProgressHUD
 
 class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate{
     
@@ -13,9 +18,10 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuButton: GroceryListMenuButton!
     
-    static var dummyFood : [String] = ["Doritos", "Milk", "Steak"]
-    var filteredData: [String]!
     
+    let db = Firestore.firestore()
+    static var filteredData: [Food] = []
+    static var foodArray: [Food] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,22 +40,98 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        filteredData = ShoppingCartViewController.dummyFood
+        ShoppingCartViewController.filteredData = ShoppingCartViewController.foodArray
+        NotificationCenter.default.addObserver(self, selector: #selector(loadGroceryData(notification:)), name: NSNotification.Name(rawValue: "loadGroceryData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeGroceryItem(notification:)), name: NSNotification.Name(rawValue: "removeGroceryItem"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addGroceryItem(notification:)), name: NSNotification.Name(rawValue: "addGroceryItem"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("loadGroceryData"), object: nil)
     }
     
+    @objc func loadGroceryData(notification: Notification){
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let docRef = db.collection("users").document(uid)
+        ShoppingCartViewController.foodArray = []
+        ShoppingCartViewController.filteredData = []
+        docRef.getDocument { [self] (document, error) in
+            if let document = document, document.exists{
+                let groceryItemUIDs = document.get("groceryItems") as? [String] ?? []
+                for groceryItemUID in groceryItemUIDs{
+                    let docItemRef = db.collection("groceryItems").document(groceryItemUID)
+                    docItemRef.getDocument { (document, error) in
+                        let json = document?.data() as? [String : Any?]  ?? [:]
+                        var food : Food = Food()
+                        
+                        if(json.isEmpty){
+                            return
+                        }
+                        
+                        food.name = json["name"] as! String
+                        food.emergencyFlag = json["emergencyFlag"] as! Int
+                        food.description = json["description"] as! String
+                        food.okayFlag = json["okayFlag"] as! Int
+                        food.price = json["price"] as! Int
+                        food.quantity = json["quantity"] as! Int
+                        food.warningFlag = json["warningFlag"] as! Int
+                        food.picPath = json["picPath"] as! String
+                        food.expirationDate = json["expiration"] as! String
+                        food.docItemRef = docItemRef.documentID as! String
+                        
+                        ShoppingCartViewController.foodArray.append(food)
+                        ShoppingCartViewController.filteredData = ShoppingCartViewController.foodArray
+                        collectionView.reloadData()
+                    }
+                }
+                
+                collectionView.reloadData()
+            }
+        }
+    }
+    
+    @objc func addGroceryItem(notification: Notification){
+        self.performSegue(withIdentifier: "goAddGroceryItem", sender: self)
+    }
+    
+    @objc func removeGroceryItem(notification: Notification){
+        let user = Auth.auth().currentUser
+        let uid = (user?.uid)!
+        db.collection("users").document(uid).updateData([
+            "groceryItems": FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                ProgressHUD.showSuccess("All items successfully deleted!")
+            }
+        }
+        ShoppingCartViewController.foodArray = []
+        ShoppingCartViewController.filteredData = ShoppingCartViewController.foodArray
+        collectionView.reloadData()
+    }
+    
+
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredData.count
+        return ShoppingCartViewController.filteredData.count
     }
     
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
         
-        cell.nameLabel.text = filteredData[indexPath.row]
-        
-        
         // TODO : Move this logic into the grocery cell or make another image view
+        
+        let food = ShoppingCartViewController.foodArray[indexPath.row]
+        
+        cell.nameLabel.text = food.name
+        cell.currentQuantity = food.quantity
+        cell.okayFlag = food.okayFlag
+        cell.emergencyFlag = food.emergencyFlag
+        cell.warningFlag = food.warningFlag
+        cell.quantityLabel.text = "Quantity: \(food.quantity)"
+        
+        
+        
         cell.groceryItemPicture.layer.cornerRadius = 15
         cell.groceryItemPicture.clipsToBounds = true
         cell.groceryItemPicture.layer.masksToBounds = true
@@ -60,10 +142,10 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? ShoppingCartViewController.dummyFood : ShoppingCartViewController.dummyFood.filter { (item: String) -> Bool in
-                    // If dataItem matches the searchText, return true to include it
-                    return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                }
+        ShoppingCartViewController.filteredData = searchText.isEmpty ? ShoppingCartViewController.foodArray : ShoppingCartViewController.foodArray.filter { (item: Food) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
         
         collectionView.reloadData()
     }

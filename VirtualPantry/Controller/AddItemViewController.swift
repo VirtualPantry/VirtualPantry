@@ -49,7 +49,7 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
            
 
            // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(sendPic(notification:)), name: NSNotification.Name(rawValue: "sendAddedItemPic"), object: nil)
+           NotificationCenter.default.addObserver(self, selector: #selector(sendPic(notification:)), name: NSNotification.Name(rawValue: "sendAddedItemPic"), object: nil)
        }
        
        @objc func viewTapped(gesture: UITapGestureRecognizer) {
@@ -62,8 +62,6 @@ class AddItemViewController: UIViewController, UIImagePickerControllerDelegate, 
            dateFormatter.dateFormat = "MM/dd/yyyy"
            expirationDateTF.text = dateFormatter.string(from: datePicker.date)
            view.endEditing(true)
-           
-           
        }
     
     
