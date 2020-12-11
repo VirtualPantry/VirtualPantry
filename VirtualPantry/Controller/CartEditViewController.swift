@@ -16,10 +16,13 @@ class CartEditViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     
     @IBOutlet weak var descriptionText: UITextField!
-    @IBOutlet weak var price: UITextField!
+
     @IBOutlet weak var itemPic: UIImageView!
     
+    @IBOutlet weak var priceField: UITextField!
+    
     @IBOutlet weak var emergencyFlag: UITextField!
+    @IBOutlet weak var totalLabel: UILabel!
     
     @IBOutlet weak var warningFlag: UITextField!
     
@@ -38,7 +41,7 @@ class CartEditViewController: UIViewController {
         super.viewDidLoad()
         
         name.text = food?.name
-        price.text = "\(food?.price as! Int)"
+        priceField.text = "\(food?.price as! Int)"
         emergencyFlag.text = "\(food?.emergencyFlag as! Int)"
         warningFlag.text = "\(food?.warningFlag as! Int)"
         descriptionText.text = "\(food?.description as! String)"
@@ -72,6 +75,14 @@ class CartEditViewController: UIViewController {
         
     }
     
+    @IBAction func calculateTotal(_ sender: Any) {
+        let price = Double(priceField.text!) ?? 0
+        let amount = Double(quantityFlag.text!) ?? 0
+        let total = price * amount ?? 0
+        
+        totalLabel.text = String(format: "$%.2f" , total)
+    }
+    
 
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -82,7 +93,7 @@ class CartEditViewController: UIViewController {
                                                                                 "description": descriptionText.text!,
                                                                                 "name": name.text!,
                                                                                 "expiration": date.text!,
-                                                                                "price" : Int(price.text!)!,
+                                                                                "price" : Int(priceField.text!)!,
                                                                                 "quantity": Int(quantityFlag.text!)!,
                                                                                             "emergencyFlag": Int(emergencyFlag.text!),
                                                                                             "warningFlag" : Int(warningFlag.text!),

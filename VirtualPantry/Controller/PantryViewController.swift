@@ -99,6 +99,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                             db.collection("users").document(uid).updateData(["groceryItems" : FieldValue.arrayUnion(PantryViewController.warningUIDs)])
                             
                             
+                            
                             // add doc to groceryItems
                             db.collection("groceryItems").document(food.docItemRef as! String).setData([
                                                                                                         "description": food.description,
@@ -113,7 +114,8 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                              
                             
                             db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayRemove(PantryViewController.warningUIDs)])
-                            self.showToast(message: "\(food.name) moved to Shopping Cart!", font: .systemFont(ofSize: 12.0))
+                            self.showToast(message: "\(food.name) moved", font: .systemFont(ofSize: 12.0))
+                            NotificationCenter.default.post(name: Notification.Name("loadGroceryData"), object: nil)
                         }
                         
                         collectionView.reloadData()
@@ -156,7 +158,10 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
             // Uh-oh, an error occurred!
           } else {
             // Data for "images/island.jpg" is returned
-            cell.pantryItemPicture.image = UIImage(data: data!)
+            DispatchQueue.main.async {
+                
+                cell.pantryItemPicture.image = UIImage(data: data!)
+            }
           }
         }
         
@@ -237,7 +242,7 @@ extension UIViewController {
 
 func showToast(message : String, font: UIFont) {
 
-    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height/2 - 75, width: 280, height: 35))
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 15))
     toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     toastLabel.textColor = UIColor.white
     toastLabel.font = font

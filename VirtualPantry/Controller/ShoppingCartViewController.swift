@@ -16,7 +16,8 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var menuButton: GroceryListMenuButton!
-    
+    @IBOutlet weak var totalLabel: UILabel!
+    var total : Int = 0
     
     let db = Firestore.firestore()
     static var filteredData: [Food] = []
@@ -26,6 +27,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         super.viewDidLoad()
         
         // Configuring the collection view
+        self.totalLabel.text = ""
         collectionView.delegate = self
         collectionView.dataSource = self
         searchBar.delegate = self
@@ -129,7 +131,9 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         cell.emergencyFlag = food.emergencyFlag
         cell.warningFlag = food.warningFlag
         cell.quantityLabel.text = "Quantity: \(food.quantity)"
+        cell.priceLabel.text = String(format: "Price: $%.2f" , food.price)
         
+        total = total + food.price
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
@@ -139,12 +143,13 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
           if let error = error {
             // Uh-oh, an error occurred!
           } else {
-            // Data for "images/island.jpg" is returned
-            cell.groceryItemPicture.image = UIImage(data: data!)
+            DispatchQueue.main.async {
+                cell.groceryItemPicture.image = UIImage(data: data!)
+            }
           }
         }
         
-        
+        self.totalLabel.text = String(format: "$%.2f" , self.total)
         cell.groceryItemPicture.layer.cornerRadius = 15
         cell.groceryItemPicture.clipsToBounds = true
         cell.groceryItemPicture.layer.masksToBounds = true
@@ -153,7 +158,6 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         return cell
     }
     
-
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         ShoppingCartViewController.filteredData = searchText.isEmpty ? ShoppingCartViewController.foodArray : ShoppingCartViewController.foodArray.filter { (item: Food) -> Bool in
             // If dataItem matches the searchText, return true to include it
