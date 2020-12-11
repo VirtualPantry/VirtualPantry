@@ -36,6 +36,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let width = collectionView.frame.size.width * 0.92
         let height = collectionView.frame.size.height * 0.30
         layout.itemSize = CGSize(width: width, height: height)
+       
         
         // Configure the search bar
         searchBar.delegate = self
@@ -99,9 +100,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                             
                             
                             // add doc to groceryItems
-                            
-                           
-                             
                             db.collection("groceryItems").document(food.docItemRef as! String).setData([
                                                                                                         "description": food.description,
                                                                                                         "name": food.name,
@@ -115,6 +113,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                              
                             
                             db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayRemove(PantryViewController.warningUIDs)])
+                            self.showToast(message: "\(food.name) moved to Shopping Cart!", font: .systemFont(ofSize: 12.0))
                         }
                         
                         collectionView.reloadData()
@@ -177,6 +176,11 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
         
+        
+        if PantryViewController.filteredData.count == 0 {
+            self.showToast(message: "No Results", font: .systemFont(ofSize: 12.0))
+        }
+        
         collectionView.reloadData()
     }
     
@@ -227,3 +231,25 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
 }
+
+
+extension UIViewController {
+
+func showToast(message : String, font: UIFont) {
+
+    let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height/2 - 75, width: 280, height: 35))
+    toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+    toastLabel.textColor = UIColor.white
+    toastLabel.font = font
+    toastLabel.textAlignment = .center;
+    toastLabel.text = message
+    toastLabel.alpha = 1.0
+    toastLabel.layer.cornerRadius = 10;
+    toastLabel.clipsToBounds  =  true
+    self.view.addSubview(toastLabel)
+    UIView.animate(withDuration: 2.0, delay: 0.1, options: .curveEaseOut, animations: {
+         toastLabel.alpha = 0.0
+    }, completion: {(isCompleted) in
+        toastLabel.removeFromSuperview()
+    })
+} }

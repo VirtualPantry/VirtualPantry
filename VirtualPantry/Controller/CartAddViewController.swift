@@ -24,6 +24,7 @@ class CartAddViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var okFlag: UITextField!
     @IBOutlet weak var quantity: UITextField!
     @IBOutlet weak var expirationDateTF: UITextField!
+    @IBOutlet weak var totalLabel: UILabel!
     private var datePicker: UIDatePicker?
     @IBOutlet weak var itemPicture: UIImageView!
     var name: String?
@@ -176,6 +177,15 @@ class CartAddViewController: UIViewController, UIImagePickerControllerDelegate, 
             data.write(toFile: localPath, atomically: true)
             imageURL = URL.init(fileURLWithPath: localPath)
         }
+    }
+    
+    
+    @IBAction func calculateTotal(_ sender: Any) {
+        let price = Double(itemPrice.text!) ?? 0
+        let amount = Double(quantity.text!) ?? 0
+        let total = price * amount ?? 0
+        
+        totalLabel.text = String(format: "$%.2f" , total)
     }
 
 

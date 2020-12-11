@@ -39,6 +39,5 @@ class SettingViewController: UIViewController {
         }
         
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-          
     }
 }
