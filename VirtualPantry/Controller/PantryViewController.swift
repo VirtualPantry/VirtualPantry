@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseStorage
 import ProgressHUD
+import AlamofireImage
 class PantryViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +21,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     static var filteredData: [Food] = []
     static var foodArray: [Food] = []
+    static var warningUIDs: [String] = []
 
 
     
@@ -53,6 +55,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let docRef = db.collection("users").document(uid)
         PantryViewController.foodArray = []
         PantryViewController.filteredData = []
+        PantryViewController.warningUIDs = []
         docRef.getDocument(completion: { [self] (document, error) in
             if let document = document, document.exists{
                 let pantryItemUIDs = document.get("pantryItems") as? [String] ?? []
@@ -78,26 +81,60 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.docItemRef = docItemRef.documentID as! String
                         PantryViewController.foodArray.append(food)
                         PantryViewController.filteredData = PantryViewController.foodArray
+                        
+                        
+                        let currentDate = Date()
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "MM/dd/yyyy"
+                        dateFormatter.timeZone = TimeZone.current
+                        dateFormatter.locale = Locale.current
+                        let foodDate = dateFormatter.date(from: food.expirationDate) as! Date
+                        
+                        
+                        if food.quantity < food.warningFlag || currentDate > foodDate{
+                            PantryViewController.foodArray.removeAll{$0 == food}
+                            PantryViewController.filteredData.removeAll{$0 == food}
+                            PantryViewController.warningUIDs.append(food.docItemRef as! String)
+                            db.collection("users").document(uid).updateData(["groceryItems" : FieldValue.arrayUnion(PantryViewController.warningUIDs)])
+                            
+                            
+                            // add doc to groceryItems
+                            
+                           
+                             
+                            db.collection("groceryItems").document(food.docItemRef as! String).setData([
+                                                                                                        "description": food.description,
+                                                                                                        "name": food.name,
+                                                                                                        "expiration": food.expirationDate,
+                                                                                                        "price" : food.price,
+                                                                                                        "quantity": food.quantity,
+                                                                                                        "emergencyFlag": food.emergencyFlag,
+                                                                                                        "warningFlag" : food.warningFlag,
+                                                                                                        "okayFlag" : food.okayFlag,
+                                                                                                        "picPath" : food.picPath])
+                             
+                            
+                            db.collection("users").document(uid).updateData(["pantryItems" : FieldValue.arrayRemove(PantryViewController.warningUIDs)])
+                        }
+                        
                         collectionView.reloadData()
                     }
-                    
                 }
-
-                print("collection view count : \(PantryViewController.foodArray.count)")
-                print("filterData count : \(PantryViewController.filteredData.count)")
+                
+//                if PantryViewController.warningUIDs.count > 0 {
+//                    NotificationCenter.default.post(name: Notification.Name("sendWarningUIDs"), object: nil)
+//                }
                 collectionView.reloadData()
             }
         })
+        
     }
-    
-
     
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return PantryViewController.filteredData.count
     }
     
-   
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
@@ -163,6 +200,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         PantryViewController.filteredData = PantryViewController.foodArray
         collectionView.reloadData()
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEditItem" {

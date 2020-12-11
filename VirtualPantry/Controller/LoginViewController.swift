@@ -58,9 +58,6 @@ class LoginViewController: UIViewController {
         return nil
     }
     
-   
-    
-    
     @objc func signedIn(note : Notification){
         self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
     }

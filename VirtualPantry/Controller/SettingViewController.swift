@@ -38,7 +38,7 @@ class SettingViewController: UIViewController {
           print ("Error signing out: %@", signOutError)
         }
         
-        self.performSegue(withIdentifier: "signedOut", sender: self)
+        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
           
     }
 }

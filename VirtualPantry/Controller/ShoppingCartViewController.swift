@@ -4,7 +4,6 @@
 //
 //  Created by Shreyas Pant on 11/14/20.
 //
-
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth
@@ -32,7 +31,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         searchBar.delegate = self
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 15
-        let width = collectionView.frame.size.width * 0.92 
+        let width = collectionView.frame.size.width * 0.92
         let height = collectionView.frame.size.height * 0.30
         layout.itemSize = CGSize(width: width, height: height)
         
@@ -56,6 +55,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         docRef.getDocument { [self] (document, error) in
             if let document = document, document.exists{
                 let groceryItemUIDs = document.get("groceryItems") as? [String] ?? []
+                print(groceryItemUIDs.count)
                 for groceryItemUID in groceryItemUIDs{
                     let docItemRef = db.collection("groceryItems").document(groceryItemUID)
                     docItemRef.getDocument { (document, error) in
@@ -203,5 +203,4 @@ extension UIImageView {
     
     
 }
-
 
