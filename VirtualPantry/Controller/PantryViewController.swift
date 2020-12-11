@@ -74,7 +74,7 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                         food.emergencyFlag = json["emergencyFlag"] as! Int
                         food.description = json["description"] as! String
                         food.okayFlag = json["okayFlag"] as! Int
-                        food.price = json["price"] as! Int
+                        food.price = Int(json["price"] as! Double)
                         food.quantity = json["quantity"] as! Int
                         food.warningFlag = json["warningFlag"] as! Int
                         food.picPath = json["picPath"] as! String
