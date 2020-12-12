@@ -32,14 +32,13 @@ The following iOS application called Virtual Pantry will automate an shopping li
 * [x] User can view items from the grocery list 
 * [x] Add item manually to pantry 
 * [x] Add item manually to the grocery list
-* Send item from grocery to pantry 
-* Send item from pantry to grocery 
+* [x] Send item from grocery to pantry 
+* [x] Send item from pantry to grocery 
 * [x] Remove item from grocery list
 * [x] Remove item from pantry 
 * [x] Search for items in pantry
 * [x] Search for items in grocery 
-* User can view history of items 
-* User can report bugs 
+* [x] Automatically moves item from pantry to shopping cart based on quantity or expiration date
 
 
 **Optional Nice-to-have Stories**
@@ -49,7 +48,7 @@ The following iOS application called Virtual Pantry will automate an shopping li
 * Tagging an item 
 * Invite ppl to shopping list or multiple shopping list 
 * Add item from scanning the barcode 
-* Notifies when something is going to be bad 
+* [x] Notifies when something is going to be bad 
 * Recipes 
 * Automatically sending your list to walmart pickup 
 
