@@ -130,7 +130,10 @@ Figma - https://www.figma.com/fie/VvOaIT7qwsjusrongulYWV/Wireframe-of-Virtual-Pa
 <img src="https://github.com/VirtualPantry/VirtualPantry/blob/master/Pictures%20for%20CodePath/resetPass.PNG" width=600>
 <img src="http://g.recordit.co/tYF4IgvIqy.gif" width=600>
 <img src="http://g.recordit.co/HRZ2eyFIpd.gif" width=600>
-
+<img src="http://g.recordit.co/nPBoIlLvbK.gif" width=600>
+<img src="http://g.recordit.co/zZEXV1j28u.gif" width=600>
+<img src="http://g.recordit.co/zZEXV1j28u.gif" width=600>
+<img src="http://g.recordit.co/FjLdRCFPpU.gif" width=600>
 
 ## Schema 
 [This section will be completed in Unit 9]
