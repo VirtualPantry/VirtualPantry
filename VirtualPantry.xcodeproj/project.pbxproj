@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18D9E9542560913D00D656B2 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9E9532560913D00D656B2 /* constant.swift */; };
+		1C2A7AEA25801BDC006E86A1 /* signOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A7AE925801BDC006E86A1 /* signOutButton.swift */; };
+		1C2A7AEF2584312B006E86A1 /* changePasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2A7AEE2584312A006E86A1 /* changePasswordButton.swift */; };
 		34E7D924DC789960F1EDFE7C /* Pods_VirtualPantry_VirtualPantryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1E8F3DD95D42BB6A4B3A65 /* Pods_VirtualPantry_VirtualPantryUITests.framework */; };
 		57397BAD383EA3BE05B19FA9 /* Pods_VirtualPantry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */; };
 		AF6A179A2557D94D00854288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A17992557D94D00854288 /* AppDelegate.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		00E756CA5E8828DCB621C9A2 /* Pods-VirtualPantry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry.release.xcconfig"; path = "Target Support Files/Pods-VirtualPantry/Pods-VirtualPantry.release.xcconfig"; sourceTree = "<group>"; };
 		18D9E9532560913D00D656B2 /* constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
+		1C2A7AE925801BDC006E86A1 /* signOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signOutButton.swift; sourceTree = "<group>"; };
+		1C2A7AEE2584312A006E86A1 /* changePasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordButton.swift; sourceTree = "<group>"; };
 		436FE7F42C52107969398CD2 /* Pods-VirtualPantryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantryTests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantryTests/Pods-VirtualPantryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47F7FC34A7B3A7B2A8209E18 /* Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; path = "Target Support Files/Pods-VirtualPantry-VirtualPantryUITests/Pods-VirtualPantry-VirtualPantryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		56D38C80332B315CF0F17F25 /* Pods_VirtualPantry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VirtualPantry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 				AF79A2A3257623C3006D75A6 /* PantryMenuButton.swift */,
 				AF79A2A4257623C3006D75A6 /* resetButton.swift */,
 				AF79A2A5257623C3006D75A6 /* PantryItemCell.swift */,
+				1C2A7AE925801BDC006E86A1 /* signOutButton.swift */,
+				1C2A7AEE2584312A006E86A1 /* changePasswordButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				18D9E9542560913D00D656B2 /* constant.swift in Sources */,
 				AF79A38025762897006D75A6 /* SettingViewController.swift in Sources */,
 				AF79A2AC257623C3006D75A6 /* SendPantryItemButton.swift in Sources */,
+				1C2A7AEA25801BDC006E86A1 /* signOutButton.swift in Sources */,
 				AF79A38325762897006D75A6 /* ShoppingCartViewController.swift in Sources */,
 				AF79A38525762897006D75A6 /* CustomNavigationController.swift in Sources */,
 				AF79A2AF257623C3006D75A6 /* resetButton.swift in Sources */,
@@ -600,6 +607,7 @@
 				AF79A2A8257623C3006D75A6 /* SendGroceryItemsButton.swift in Sources */,
 				AF6A179C2557D94D00854288 /* SceneDelegate.swift in Sources */,
 				AF79A2B0257623C3006D75A6 /* PantryItemCell.swift in Sources */,
+				1C2A7AEF2584312B006E86A1 /* changePasswordButton.swift in Sources */,
 				AF79A2AB257623C3006D75A6 /* BackButton.swift in Sources */,
 				AF79A2A9257623C3006D75A6 /* SignUpButton.swift in Sources */,
 			);

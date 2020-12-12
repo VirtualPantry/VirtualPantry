@@ -41,4 +41,31 @@ class SettingViewController: UIViewController {
         self.performSegue(withIdentifier: "signedOut", sender: self)
           
     }
+    
+    
+    @IBAction func onTapToChangePassword(_ sender: Any) {
+        
+        showPasswordResetAlert()
+        
+        // get current firebase user
+        var user = Auth.auth().currentUser
+        
+        if let user = user {
+            let email = user.email!
+            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+                print("Error with resetting your password via email")
+                }
+            }
+    }
+    
+    func showPasswordResetAlert() {
+        let alert = UIAlertController(title: "Password Reset Request", message: "The email to reset your password has been sent.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in print("dismissed")
+            
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    
 }
+    

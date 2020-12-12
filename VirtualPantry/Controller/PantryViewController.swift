@@ -21,6 +21,9 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+        
         // Configuring the collection view
         collectionView.delegate = self
         collectionView.dataSource = self
