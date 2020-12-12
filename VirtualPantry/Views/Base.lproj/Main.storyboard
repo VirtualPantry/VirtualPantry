@@ -266,6 +266,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu5-dO-lEe" customClass="SendGroceryItemsButton" customModule="VirtualPantry" customModuleProvider="target">
                                 <rect key="frame" x="220" y="721" width="174" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sendAllItem:" destination="rz2-tC-GR2" eventType="touchUpInside" id="bnb-ST-4Ny"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jYR-SB-CSY"/>
@@ -392,6 +395,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ff-Wr-2uR" customClass="SendPantryItemButton" customModule="VirtualPantry" customModuleProvider="target">
                                 <rect key="frame" x="23" y="728" width="371" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sendAllItem:" destination="yx6-tJ-gI7" eventType="touchUpInside" id="tpH-gL-kEe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W3v-bO-0kf"/>
@@ -883,7 +889,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4928" y="2619"/>
+            <point key="canvasLocation" x="4633" y="2619"/>
         </scene>
         <!--Edit Item View Controller-->
         <scene sceneID="h6n-Cr-1NQ">
@@ -999,9 +1005,10 @@
                                     <action selector="updateTapped:" destination="Tmh-Y2-asI" eventType="touchUpInside" id="YAG-6R-jL4"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kbh-Q7-neO">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kbh-Q7-neO">
                                 <rect key="frame" x="86" y="227" width="223" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1061,7 +1068,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SeB-aH-DLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="HBQ-U7-qd0"/>
             </objects>
-            <point key="canvasLocation" x="5729" y="2619"/>
+            <point key="canvasLocation" x="5406" y="2619"/>
         </scene>
         <!--Cart Edit View Controller-->
         <scene sceneID="xBQ-Zi-aRd">
@@ -1174,9 +1181,10 @@
                                     <action selector="update:" destination="1br-eZ-sO0" eventType="touchUpInside" id="pzJ-Lg-brh"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lu2-yn-vK3">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lu2-yn-vK3">
                                 <rect key="frame" x="86" y="227" width="223" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1240,7 +1248,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PaY-lw-0qM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="uRD-uA-hce"/>
             </objects>
-            <point key="canvasLocation" x="4148" y="2619"/>
+            <point key="canvasLocation" x="3846" y="2619"/>
         </scene>
         <!--Item-->
         <scene sceneID="XYN-Le-flh">

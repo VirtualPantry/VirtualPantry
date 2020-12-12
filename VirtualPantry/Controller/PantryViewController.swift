@@ -136,6 +136,42 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         return PantryViewController.filteredData.count
     }
     
+    @IBAction func sendAllItem(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        let uid = user!.uid
+        let docRef = db.collection("users").document(uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists{
+                let pantryItemUIDs = document.get("pantryItems") as? [String] ?? []
+                self.db.collection("users").document(uid).updateData(["groceryItems" : FieldValue.arrayUnion(pantryItemUIDs)])
+                
+                for itemID in pantryItemUIDs {
+                    let ref = self.db.collection("groceryItems").document(itemID)
+                    ref.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let name = document.get("name")
+                            let price = document.get("price")
+                            let description = document.get("description")
+                            let emergencyFlag = document.get("emergencyFlag")
+                            let okFlag = document.get("okayFlag")
+                            let warningFlag = document.get("warningFlag")
+                            let quantity = document.get("quantity")
+                            let expiration = document.get("expiration")
+                            let picPath = document.get("picPath")
+                            self.db.collection("pantryItems").document(itemID).setData([ "name": name, "price": price, "description" : description, "emergencyFlag" : emergencyFlag, "okayFlag": okFlag, "warningFlag": warningFlag, "quantity": quantity, "expiration" : expiration, "picPath" : picPath])
+                            
+                        }
+                    }
+
+                }
+                
+                NotificationCenter.default.post(name: Notification.Name("removePantryItem"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("loadGroceryData"), object: nil)
+            }
+        }
+    }
+    
+    
     // Return the custom cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PantryItemCell", for: indexPath) as! PantryItemCell
@@ -227,7 +263,9 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                     // Uh-oh, an error occurred!
                   } else {
                     // Data for "images/island.jpg" is returned
-                    EditViewController.itemPic.image = UIImage(data: data!)
+                    DispatchQueue.main.async {
+                        EditViewController.itemPic.image = UIImage(data: data!)
+                    }
                   }
                 }
             }
