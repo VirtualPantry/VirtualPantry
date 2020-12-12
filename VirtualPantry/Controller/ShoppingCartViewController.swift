@@ -72,7 +72,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
                         food.emergencyFlag = json["emergencyFlag"] as! Int
                         food.description = json["description"] as! String
                         food.okayFlag = json["okayFlag"] as! Int
-                        food.price = json["price"] as! Int
+                        food.price = Int(json["price"] as! Double)
                         food.quantity = json["quantity"] as! Int
                         food.warningFlag = json["warningFlag"] as! Int
                         food.picPath = json["picPath"] as! String
@@ -121,6 +121,11 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroceryItemCell", for: indexPath) as! GroceryItemCell
         
+        
+        if(indexPath.row == 0){
+            total = 0; 
+        }
+        
         // TODO : Move this logic into the grocery cell or make another image view
         
         let food = ShoppingCartViewController.foodArray[indexPath.row]
@@ -131,9 +136,21 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         cell.emergencyFlag = food.emergencyFlag
         cell.warningFlag = food.warningFlag
         cell.quantityLabel.text = "Quantity: \(food.quantity)"
-        cell.priceLabel.text = String(format: "Price: $%.2f" , food.price)
+        total = total + food.price * food.quantity
         
-        total = total + food.price
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale.current
+
+        // We'll force unwrap with the !, if you've got defined data you may need more error checking
+        let priceString = currencyFormatter.string(from: NSNumber(value: food.price))!
+        let totalString = currencyFormatter.string(from: NSNumber(value: total))!
+        cell.priceLabel.text = "Price per item: \(priceString)"
+        print(priceString)
+        
+        
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
@@ -149,7 +166,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
           }
         }
         
-        self.totalLabel.text = String(format: "$%.2f" , self.total)
+        self.totalLabel.text = totalString
         cell.groceryItemPicture.layer.cornerRadius = 15
         cell.groceryItemPicture.clipsToBounds = true
         cell.groceryItemPicture.layer.masksToBounds = true
