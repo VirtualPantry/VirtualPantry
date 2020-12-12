@@ -211,15 +211,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Uxp-wo-6PG">
-                                                    <rect key="frame" x="277" y="56" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
-                                                    <color key="thumbTintColor" systemColor="systemGroupedBackgroundColor"/>
-                                                    <connections>
-                                                        <action selector="selectedItem:" destination="dA0-zC-gca" eventType="valueChanged" id="Xxm-dk-6dJ"/>
-                                                    </connections>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nf-rl-k9g">
                                                     <rect key="frame" x="115" y="63" width="100" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -235,7 +226,6 @@
                                             <outlet property="nameLabel" destination="cKC-Pj-oxi" id="y5k-A8-fZ0"/>
                                             <outlet property="priceLabel" destination="sEs-FZ-VRM" id="Dad-JJ-VfM"/>
                                             <outlet property="quantityLabel" destination="8Nf-rl-k9g" id="eYP-eL-yWI"/>
-                                            <outlet property="switcher" destination="Uxp-wo-6PG" id="aNx-ba-D8Z"/>
                                             <segue destination="1br-eZ-sO0" kind="presentation" identifier="goEditGroceryItem" id="c8p-q2-E4f"/>
                                         </connections>
                                     </collectionViewCell>
@@ -367,15 +357,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="swz-IE-Y1D">
-                                                    <rect key="frame" x="306" y="56" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
-                                                    <color key="thumbTintColor" systemColor="systemGroupedBackgroundColor"/>
-                                                    <connections>
-                                                        <action selector="selectedItem:" destination="2rE-nu-SZO" eventType="valueChanged" id="cBe-tW-bwQ"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </collectionViewCellContentView>
@@ -386,7 +367,6 @@
                                             <outlet property="nameLabel" destination="e2v-P9-oMw" id="gJi-08-Mpf"/>
                                             <outlet property="pantryItemPicture" destination="ETD-Ql-NBN" id="UoZ-R8-kA0"/>
                                             <outlet property="quantityLabel" destination="pik-Rx-uX0" id="ogI-TM-Lcv"/>
-                                            <outlet property="switcher" destination="swz-IE-Y1D" id="YsB-Aa-KMt"/>
                                             <segue destination="Tmh-Y2-asI" kind="presentation" identifier="goEditItem" id="SWw-2K-Abc"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1468,14 +1448,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

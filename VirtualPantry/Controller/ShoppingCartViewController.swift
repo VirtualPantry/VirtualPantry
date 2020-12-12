@@ -46,6 +46,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         NotificationCenter.default.addObserver(self, selector: #selector(removeGroceryItem(notification:)), name: NSNotification.Name(rawValue: "removeGroceryItem"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addGroceryItem(notification:)), name: NSNotification.Name(rawValue: "addGroceryItem"), object: nil)
         NotificationCenter.default.post(name: Notification.Name("loadGroceryData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeSendingGroceryItems(notification:)), name: NSNotification.Name(rawValue: "removeSendingGroceryItems"), object: nil)
     }
     
     @objc func loadGroceryData(notification: Notification){
@@ -111,7 +112,23 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         collectionView.reloadData()
     }
     
-
+    @objc func removeSendingGroceryItems(notification: Notification){
+        let user = Auth.auth().currentUser
+        let uid = (user?.uid)!
+        db.collection("users").document(uid).updateData([
+            "groceryItems": FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                ProgressHUD.showSuccess("All items are sent to Pantry!")
+            }
+        }
+        ShoppingCartViewController.foodArray = []
+        ShoppingCartViewController.filteredData = ShoppingCartViewController.foodArray
+        collectionView.reloadData()
+    }
+    
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ShoppingCartViewController.filteredData.count
@@ -123,7 +140,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
         
         
         if(indexPath.row == 0){
-            total = 0; 
+            total = 0;
         }
         
         // TODO : Move this logic into the grocery cell or make another image view
@@ -214,7 +231,7 @@ class ShoppingCartViewController: UIViewController,UICollectionViewDelegate,UICo
                     }
 
                 }
-                NotificationCenter.default.post(name: Notification.Name("removeGroceryItem"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("removeSendingGroceryItems"), object: nil)
                 NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
             }
         }
@@ -263,4 +280,3 @@ extension UIImageView {
     
     
 }
-

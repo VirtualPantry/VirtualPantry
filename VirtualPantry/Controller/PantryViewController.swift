@@ -43,10 +43,11 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
         let searchTextField = searchBar.value(forKey: "searchField") as? UITextField
         searchTextField?.backgroundColor = UIColor.white
         
-        PantryViewController.filteredData = PantryViewController.foodArray
+        PantryViewController.filteredData = PantryViewController.foodArray //removeSendingPantryItem
         NotificationCenter.default.addObserver(self, selector: #selector(loadPantryData(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removeItems(notification:)), name: NSNotification.Name(rawValue: "removePantryItem"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goAddItem(notification:)), name: NSNotification.Name(rawValue: "addPantryItem"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeSendItems(notification:)), name: NSNotification.Name(rawValue: "removeSendingPantryItem"), object: nil)
         NotificationCenter.default.post(name: Notification.Name("load"), object: nil)
     }
     
@@ -144,7 +145,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
             if let document = document, document.exists{
                 let pantryItemUIDs = document.get("pantryItems") as? [String] ?? []
                 self.db.collection("users").document(uid).updateData(["groceryItems" : FieldValue.arrayUnion(pantryItemUIDs)])
-                
                 for itemID in pantryItemUIDs {
                     let ref = self.db.collection("groceryItems").document(itemID)
                     ref.getDocument { (document, error) in
@@ -159,13 +159,12 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                             let expiration = document.get("expiration")
                             let picPath = document.get("picPath")
                             self.db.collection("pantryItems").document(itemID).setData([ "name": name, "price": price, "description" : description, "emergencyFlag" : emergencyFlag, "okayFlag": okFlag, "warningFlag": warningFlag, "quantity": quantity, "expiration" : expiration, "picPath" : picPath])
-                            
                         }
                     }
 
                 }
                 
-                NotificationCenter.default.post(name: Notification.Name("removePantryItem"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("removeSendingPantryItem"), object: nil)
                 NotificationCenter.default.post(name: Notification.Name("loadGroceryData"), object: nil)
             }
         }
@@ -195,7 +194,6 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
           } else {
             // Data for "images/island.jpg" is returned
             DispatchQueue.main.async {
-                
                 cell.pantryItemPicture.image = UIImage(data: data!)
             }
           }
@@ -239,6 +237,23 @@ class PantryViewController: UIViewController,UICollectionViewDelegate,UICollecti
                 print("Error updating document: \(err)")
             } else {
                 ProgressHUD.showSuccess("All items successfully deleted!")
+            }
+        }
+        PantryViewController.foodArray = []
+        PantryViewController.filteredData = PantryViewController.foodArray
+        collectionView.reloadData()
+    }
+    
+    @objc func removeSendItems(notification: NSNotification){
+        let user = Auth.auth().currentUser
+        let uid = (user?.uid)!
+        db.collection("users").document(uid).updateData([
+            "pantryItems": FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                ProgressHUD.showSuccess("All items are sent to Shopping Cart!")
             }
         }
         PantryViewController.foodArray = []

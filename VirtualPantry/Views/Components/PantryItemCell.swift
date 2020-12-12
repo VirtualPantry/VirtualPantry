@@ -12,7 +12,6 @@ class PantryItemCell: UICollectionViewCell {
     @IBOutlet weak var pantryItemPicture: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var switcher: UISwitch!
     @IBOutlet weak var expirationDateLabel: UILabel!
     
     var emergencyFlag : Int = 1
@@ -87,23 +86,6 @@ class PantryItemCell: UICollectionViewCell {
             quantityLabel?.highlightedTextColor = textColor
             expirationDateLabel?.textColor = textColor
             expirationDateLabel?.highlightedTextColor = textColor
-        }
-
-    }
-    
-    @IBAction func selectedItem(_ sender: Any) {
-        if(switcher.isOn == true){
-            self.contentView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            nameLabel?.textColor = UIColor.black
-            quantityLabel?.textColor = UIColor.black
-            expirationDateLabel?.textColor = UIColor.black
-            nameLabel?.highlightedTextColor = UIColor.black
-            quantityLabel?.highlightedTextColor = UIColor.black
-            expirationDateLabel?.highlightedTextColor = UIColor.black
-        }
-        
-        else{
-            self.setColor()
         }
     }
 }
