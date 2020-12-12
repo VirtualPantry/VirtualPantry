@@ -1,10 +1,3 @@
-//
-//  LoginViewController.swift
-//  VirtualPantry
-//
-//  Created by Mathew Chanda on 11/8/20.
-//
-
 import UIKit
 import Firebase
 import GoogleSignIn
@@ -47,10 +40,7 @@ class LoginViewController: UIViewController {
                     self.errorLabel.text = error!.localizedDescription
                     self.errorLabel.alpha = 1
                 } else {
-                    let shoppingCart =  self.storyboard?.instantiateViewController(identifier: constant.StoryBoard.cartVC) as? ShoppingCartViewController
-                     
-                    self.view.window?.rootViewController = shoppingCart
-                    self.view.window?.makeKeyAndVisible()
+                    self.performSegue(withIdentifier: "signInSuccessFul", sender: self)
                 }
             }
         } else {
@@ -70,7 +60,6 @@ class LoginViewController: UIViewController {
         // nil means everything is fine
         return nil
     }
-    
     
     @objc func signedIn(note : Notification){
         self.performSegue(withIdentifier: "signInSuccessFul", sender: self)

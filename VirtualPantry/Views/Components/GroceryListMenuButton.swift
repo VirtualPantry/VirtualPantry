@@ -37,37 +37,22 @@ class GroceryListMenuButton: UIButton {
     // Creating the Menu
     func createMenu() -> UIMenu {
         
-      let exportedSelectedItems = UIAction(
-        title: "Export Selected Item",
-        image: UIImage(systemName: "arrowshape.turn.up.left.fill")
-      ) { (_) in
-        print("New Photo from Camera")
-      }
-        
-        
      let addItem = UIAction(
         title: "Add Item Manually",
         image: UIImage(systemName: "plus")
       ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("addGroceryItem"), object: nil)
       }
-        
-      let exportAll = UIAction(
-           title: "Export all Items",
-           image: UIImage(systemName: "arrowshape.turn.up.left.2.fill")
-         ) { (_) in
-           print("New Photo from Camera")
-    }
         
     let removeAll = UIAction(
         title: "Remove all Items",
         image: UIImage(systemName: "delete.left"), attributes: UIMenuElement.Attributes.destructive
         ) { (_) in
-        print("New Photo from Camera")
+        NotificationCenter.default.post(name: Notification.Name("removeGroceryItem"), object: nil)
     }
         
         
-    let menuActions = [addItem,exportedSelectedItems, exportAll,removeAll]
+    let menuActions = [addItem, removeAll]
       
     let addNewMenu = UIMenu(
       title: "",
